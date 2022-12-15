@@ -20,7 +20,7 @@ return new class extends Migration
             $table->char('no_hp', 12);
             $table->string('alamat');
             $table->date('tanggal_lahir');
-            $table->enum('jenis_kelamin', ['laki-laki', 'perempuan']);
+            $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan']);
             $table->date('tanggal_masuk');
             $table->enum('golongan_darah', ['A', 'B', 'AB', 'O']);
             $table->string('pekerjaan');
