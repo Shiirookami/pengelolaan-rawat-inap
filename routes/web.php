@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Petugas\KamarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-use App\Http\Controllers\Petugas\KamarController;
-
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -24,4 +22,18 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('kamar', KamarController::class);
+Route::group(['middleware' => 'auth'], function () {
+    Route::group([
+        'middleware' => 'role:admin',
+        'prefix' => 'admin',
+        'as' => 'admin.'
+    ], function () {
+    });
+    Route::group([
+        'middleware' => 'role:petugas',
+        'prefix' => 'admin',
+        'as' => 'petugas.'
+    ], function () {
+        Route::resource('kamar', KamarController::class);
+    });
+});
