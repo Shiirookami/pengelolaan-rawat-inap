@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Petugas\KamarController;
+use App\Http\Controllers\Petugas\DokterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,7 @@ Route::group(['middleware' => 'auth'], function () {
         'prefix' => 'admin',
         'as' => 'petugas.'
     ], function () {
-        Route::resource('kamar', KamarController::class);
+        Route::resource('/kamar', KamarController::class);
+        Route::resource('/dokter', DokterController::class);
     });
 });
