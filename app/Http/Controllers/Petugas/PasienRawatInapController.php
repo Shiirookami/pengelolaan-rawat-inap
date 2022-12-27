@@ -12,14 +12,14 @@ class PasienRawatInapController extends Controller
 {
     public function index()
     {
-        $items = PasienRawatInap::all();
-        return view('petugas.pasienrawatinap.index')->with(compact('items'));
+        $data['items'] = PasienRawatInap::all();
+        return view('petugas.pasienrawatinap.index')->with($data);
     }
 
     public function create()
     {
-        $kamars = Kamar::all();
-        return view('petugas.pasienrawatinap.create')->with(compact('kamars'));
+        $data['kamars'] = Kamar::all();
+        return view('petugas.pasienrawatinap.create')->with($data);
     }
 
     public function store(Request $request)
@@ -37,9 +37,9 @@ class PasienRawatInapController extends Controller
 
     public function edit($id)
     {
-        $item = PasienRawatInap::findOrFail($id);
-        $kamars = Kamar::all();
-        return view('petugas.pasienrawatinap.edit')->with(compact('item', 'kamars'));
+        $data['item'] = PasienRawatInap::findOrFail($id);
+        $data['kamars'] = Kamar::all();
+        return view('petugas.pasienrawatinap.edit')->with($data);
     }
 
     public function update(PasienRawatInap $request, $id)

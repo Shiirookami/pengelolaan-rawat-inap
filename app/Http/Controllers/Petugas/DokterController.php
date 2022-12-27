@@ -11,8 +11,8 @@ class DokterController extends Controller
 {
     public function index()
     {
-        $items = Dokter::all();
-        return view('petugas.dokter.index')->with(compact('items'));
+        $data['items'] = Dokter::all();
+        return view('petugas.dokter.index')->with($data);
     }
 
     public function create()
@@ -35,10 +35,8 @@ class DokterController extends Controller
 
     public function edit($id)
     {
-        $item = Dokter::findOrFail($id);
-        return view('petugas.dokter.edit')->with([
-            'item' => $item
-        ]);
+        $data['item'] = Dokter::findOrFail($id);
+        return view('petugas.dokter.edit')->with($data);
     }
 
     public function update(DokterRequest $request, $id)

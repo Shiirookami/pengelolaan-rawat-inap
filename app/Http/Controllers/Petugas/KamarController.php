@@ -12,14 +12,14 @@ class KamarController extends Controller
 {
     public function index()
     {
-        $items = Kamar::all();
-        return view('petugas.kamar.index')->with(compact('items'));
+        $data['items'] = Kamar::all();
+        return view('petugas.kamar.index')->with($data);
     }
 
     public function create()
     {
-        $items = Kamar::all();
-        return view('petugas.kamar.create')->with(compact('items'));
+        $data['items'] = Kamar::all();
+        return view('petugas.kamar.create')->with($data);
     }
 
     public function store(KamarRequest $request)
@@ -37,10 +37,8 @@ class KamarController extends Controller
 
     public function edit($id)
     {
-        $item = Kamar::findOrFail($id);
-        return view('petugas.kamar.edit')->with([
-            'item' => $item
-        ]);
+        $data['item'] = Kamar::findOrFail($id);
+        return view('petugas.kamar.edit')->with($data);
     }
 
     public function update(KamarRequest $request, $id)
