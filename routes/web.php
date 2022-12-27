@@ -24,15 +24,15 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'guest'], function () {
     Route::group([
-        'middleware' => 'role:admin',
+        // 'middleware' => 'role:admin',
         'prefix' => 'admin',
         'as' => 'admin.'
     ], function () {
     });
     Route::group([
-        'middleware' => 'role:petugas',
+        // 'middleware' => 'role:petugas',
         'prefix' => 'admin',
         'as' => 'petugas.'
     ], function () {
