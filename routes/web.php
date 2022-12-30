@@ -45,3 +45,7 @@ Route::group(['middleware' => 'guest'], function () {
 Route::get('/tesView', function () {
     return view('petugas.visitdokter.edit'); //Cek edit visitdokter /tesView
 });
+
+Route::get('/tes', function () {
+    return view('petugas.rujukan.create'); //Cek edit visitdokter /tesView
+});
