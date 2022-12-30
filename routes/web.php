@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Petugas\KamarController;
 use App\Http\Controllers\Petugas\DokterController;
 use App\Http\Controllers\Petugas\PasienRawatInapController;
+use App\Http\Controllers\Petugas\VisitDokterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,5 +40,6 @@ Route::group(['middleware' => 'guest'], function () {
         Route::resource('/kamar', KamarController::class);
         Route::resource('/dokter', DokterController::class);
         Route::resource('/pasienrawatinap', PasienRawatInapController::class);
+        Route::resource('/visitdokter', VisitDokterController::class);
     });
 });
