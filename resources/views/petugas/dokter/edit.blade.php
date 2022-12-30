@@ -5,8 +5,9 @@
       <h5 class="card-title">Tambah Dokter</h5>
       <a href="{{url()->previous()}}" class="btn btn-facebook">kembali</a>
       <!-- General Form Elements -->
-      <form action="{{route('petugas.dokter.store')}}" method="POST">
+      <form action="{{route('petugas.dokter.update')}}" method="POST">
         @csrf
+        @method('put')
         <div class="row mb-3">
           <label for="inputText" class="col-sm-2 col-form-label">Nama Dokter</label>
           <div class="col-sm-10">
