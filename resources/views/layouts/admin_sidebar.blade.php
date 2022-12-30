@@ -54,9 +54,13 @@
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{route('petugas.pasienrawatinap.index')}}">  
       <i class="fas fa-solid fa-bed"></i>
-      
-      {{-- <i class="fa-regular fa-users-medical"></i> --}}
       <span>Pasien</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="{{route('petugas.visitdokter.index')}}">  
+      <i class="fas fa-solid fa-star-of-life"></i>
+      <span>Visit Dokter</span>
     </a>
   </li>
   <!-- Divider -->

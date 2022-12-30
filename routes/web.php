@@ -5,7 +5,10 @@ use App\Http\Controllers\Petugas\KamarController;
 use App\Http\Controllers\Petugas\DokterController;
 use App\Http\Controllers\Petugas\PasienRawatInapController;
 use App\Http\Controllers\Petugas\VisitDokterController;
+<<<<<<< HEAD
 
+=======
+>>>>>>> dedeec3d331333ab0c234e17e0fff3e5c4d1699e
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,4 +45,8 @@ Route::group(['middleware' => 'guest'], function () {
         Route::resource('/pasienrawatinap', PasienRawatInapController::class);
         Route::resource('/visitdokter', VisitDokterController::class);
     });
+});
+Route::get('/tesView', function ()
+    {
+    return view('petugas.visitdokter.edit'); //Cek edit visitdokter /tesView
 });
