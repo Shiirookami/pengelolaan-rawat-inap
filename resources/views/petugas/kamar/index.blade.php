@@ -25,9 +25,9 @@
                 <td>{{$kamar->kelas}}</td>
                 <td>{{$kamar->harga}}</td>
                 <td class="text-center">
-                    <form method="post" action="{{route('petugas.kamar.destroy',$kamar->id)}}">
+                    <form method="post" action="{{route('petugas.kamar.destroy')}}">
                         <button type="button" class="btn btn-warning">
-                            <a href="{{route('petugas.kamar.edit',$kamar->id)}}">Edit</a>
+                            <a href="{{route('petugas.kamar.edit')}}">Edit</a>
                         </button>
                         @method('delete')
                         @csrf

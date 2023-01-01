@@ -53,7 +53,9 @@ class PasienRawatInapController extends Controller
 
     public function destroy($id)
     {
-        PasienRawatInap::onlyTrashed()->findOrFail($id)->forceDelete();
+        // PasienRawatInap::onlyTrashed()->findOrFail($id)->forceDelete();
+        $pasien = PasienRawatInap::findOrFail($id);
+        $pasien->delete();
         Session::flash('status', 'Data Berhasil Dihapus');
         return redirect()->route('petugas.pasienrawatinap.index');
     }
