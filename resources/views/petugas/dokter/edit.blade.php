@@ -11,19 +11,19 @@
         <div class="row mb-3">
           <label for="inputText" class="col-sm-2 col-form-label">Nama Dokter</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" name="nama_dokter">
+            <input type="text" class="form-control" name="nama_dokter"value="{{$item->nama_dokter}}">
           </div>
         </div>
         <div class="row mb-3">
           <label for="inputNumber" class="col-sm-2 col-form-label">No Indentitas</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" name="no_identitas">
+            <input type="text" class="form-control" name="no_identitas"value="{{$item->no_identitas}}">
           </div>
         </div>
             <div class="row mb-3">
                 <label class="col-sm-2 col-form-label">Spesialis</label>
                 <div class="col-sm-10">
-                  <select class="form-select" aria-label="Default select example" name="spesialis">
+                  <select class="form-select" aria-label="Default select example" name="spesialis"value="{{$item->spesialis}}">
                     <option selected>Open this select menu</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
@@ -34,7 +34,7 @@
         <div class="row mb-3">
           <label for="inputDate" class="col-sm-2 col-form-label" >Tanggal</label>
           <div class="col-sm-10">
-            <input type="date" class="form-control" name="jadwal_dokter">
+            <input type="date" class="form-control" name="jadwal_dokter"value="{{$item->jadwal_dokter}}">
           </div>
         </div>
         {{-- <div class="row mb-3">
