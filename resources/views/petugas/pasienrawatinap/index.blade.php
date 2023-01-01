@@ -54,14 +54,14 @@
                 <td>{{$pasien->status_asuransi}}</td>
                 @endforeach
             <td class="text-center">
-                {{-- <form method="post" action="{{route('petugas.pasienrawatinap.destroy',$items->id)}}">
+                <form method="post" action="{{route('petugas.pasienrawatinap.destroy',$items->id)}}">
                     <button type="button" class="btn btn-warning">
                         <a href="{{route('petugas.pasienrawatinap.edit',$items->id)}}">Edit</a>
                     </button>
                     @method('delete')
                     @csrf
                     <button type="submit" onclick="deleteConfirmation()" class="btn btn-danger btn-sm">Delete</button>
-                </form> --}}
+                </form>
             </td>
           </tr>
         </tbody>
@@ -74,5 +74,8 @@
 @endsection
 
 @section('content')
+
+@endsection
+ion('content')
 
 @endsection

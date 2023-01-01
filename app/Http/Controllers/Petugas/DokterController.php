@@ -50,9 +50,7 @@ class DokterController extends Controller
 
     public function destroy($id)
     {
-        // Dokter::onlyTrashed()->findOrFail($id)->forceDelete();
-        $dokter = Dokter::findOrFail($id);
-        $dokter->delete();
+        Dokter::onlyTrashed()->findOrFail($id)->forceDelete();
         Session::flash('status', 'Data Berhasil Dihapus');
         return redirect()->route('petugas.kamar.index');
     }
