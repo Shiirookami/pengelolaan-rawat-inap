@@ -13,6 +13,7 @@ class PasienRawatInapController extends Controller
     public function index()
     {
         $data['items'] = PasienRawatInap::all();
+        $data['kamars'] = Kamar::all();
         return view('petugas.pasienrawatinap.index')->with($data);
     }
 

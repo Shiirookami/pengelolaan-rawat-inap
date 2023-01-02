@@ -50,7 +50,7 @@
           <div class="row mb-3">
             <label for="inputDate" class="col-sm-2 col-form-label">Tanggal Masuk</label>
             <div class="col-sm-10">
-              <input type="desable" class="form-control" name="tanggal_masuk">
+              <input type="date" class="form-control" name="tanggal_masuk">
             </div>
           </div>
           <div class="row mb-3">
@@ -133,6 +133,15 @@
           </div>
         </div>
         <div class="row mb-3">
+          <label for="inputDate" class="col-sm-2 col-form-label">id kamar</label>
+          <div class="col-sm-10">
+            @foreach ($kamars as $item)
+            <input type="text" class="form-control" name="status_asuransi"value="{{$item->id}}">
+                {{-- <label for="text" >{{$item->id}}</label> --}}
+             @endforeach
+        </div>
+        </div>
+        <div class="row mb-3">
           {{-- <label class="col-sm-10 col-form-label"></label> --}}
           <div class="col-sm-2 offset-2"><br>
             <button type="submit" class="btn btn-primary">Submit Form</button>
@@ -144,4 +153,3 @@
     </div>
   </div>
   @endsection
-section

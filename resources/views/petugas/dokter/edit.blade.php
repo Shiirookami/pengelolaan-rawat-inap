@@ -5,7 +5,7 @@
       <h5 class="card-title">Tambah Dokter</h5>
       <a href="{{url()->previous()}}" class="btn btn-facebook">kembali</a>
       <!-- General Form Elements -->
-      <form action="{{route('petugas.dokter.update')}}" method="POST">
+      <form action="{{route('petugas.dokter.update',$item->id)}}" method="POST">
         @csrf
         @method('put')
         <div class="row mb-3">

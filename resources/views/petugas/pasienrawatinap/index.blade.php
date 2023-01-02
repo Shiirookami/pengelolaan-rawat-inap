@@ -27,6 +27,7 @@
             <th scope="col">Pekerjaan Kepala Keluarga</th>
             <th scope="col">No HP Yang Bertanggung Jawab</th>
             <th scope="col">Asuransi</th>
+            <th scope="col">id kamar</th>
             <th scope="col" class="text-center">Action</th>
           </tr>
         </thead>
@@ -52,16 +53,17 @@
                 <td>{{$pasien->no_hp_orang_bertanggung_jawab}}</td>
                 <td>{{$pasien->no_hp_orang_bertanggung_jawab}}</td>
                 <td>{{$pasien->status_asuransi}}</td>
+                <td>{{$pasien->kamars->id_kamar}}</td>
                 @endforeach
             <td class="text-center">
-                <form method="post" action="{{route('petugas.pasienrawatinap.destroy',$items->id)}}">
+                {{-- <form method="post" action="{{route('petugas.pasienrawatinap.destroy',$pasien->id)}}">
                     <button type="button" class="btn btn-warning">
-                        <a href="{{route('petugas.pasienrawatinap.edit',$items->id)}}">Edit</a>
+                        <a href="{{route('petugas.pasienrawatinap.edit',$pasien->id)}}">Edit</a>
                     </button>
                     @method('delete')
                     @csrf
                     <button type="submit" onclick="deleteConfirmation()" class="btn btn-danger btn-sm">Delete</button>
-                </form>
+                </form> --}}
             </td>
           </tr>
         </tbody>
@@ -75,7 +77,5 @@
 
 @section('content')
 
-@endsection
-ion('content')
 
 @endsection
