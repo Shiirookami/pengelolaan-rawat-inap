@@ -42,8 +42,8 @@
             <div class="col-sm-10">
               <select class="form-select" aria-label="Default select example"name="jenis_kelamin">
                 <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
+                <option value="laki-laki">laki-laki</option>
+                <option value="perempuan">perempuan</option>
               </select>
             </div>
           </div>
@@ -58,9 +58,11 @@
             <div class="col-sm-10">
               <select class="form-select" aria-label="Default select example" name="golongan_darah">
                 <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-              </select>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="AB">AB</option>
+                <option value="O">O</option>
+                </select>
             </div>
           </div>
           <div class="row mb-3">
@@ -70,9 +72,13 @@
             </div>
           </div>
           <div class="row mb-3">
-            <label for="inputText" class="col-sm-2 col-form-label">Warga Negara</label>
+            <label class="col-sm-2 col-form-label">Agama</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="warga_negara">
+              <select class="form-select" aria-label="Default select example" name="status_pernikahan">
+                <option selected>Open this select menu</option>
+                <option value="WNI">WNI</option>
+                <option value="WNA">WNA</option>
+              </select>
             </div>
           </div>
           <div class="row mb-3">
@@ -80,33 +86,25 @@
             <div class="col-sm-10">
               <select class="form-select" aria-label="Default select example" name="agama">
                 <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
+                <option value="ISLAM">ISLAM</option>
+                <option value="KRISLAM">KRISLAM</option>
+                <option value="BUDHA">BUDHA</option>
+                <option value="KRISTEN">KRISTEN</option>
+                <option value="KATHOLIK">KATHOLIK</option>
+                <option value="HINDU">HINDU</option>
+                <option value="KONGHUCU">KONGHUCU</option>
               </select>
             </div>
           </div>
           <div class="row mb-3">
-            <label class="col-form-label col-sm-2 pt-0">Status Pernikahan</label>
+            <label class="col-sm-2 col-form-label">status pernikahan</label>
             <div class="col-sm-10">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="status_pernikahan" id="gridRadios1" value="option1" checked>
-                <label class="form-check-label" for="gridRadios1">
-                  First radio
-                </label>
-              </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="status_pernikahan" id="gridRadios1" value="option1" checked>
-                  <label class="form-check-label" for="gridRadios1">
-                    First radio
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="status_pernikahan" id="gridRadios1" value="option1" checked>
-                  <label class="form-check-label" for="gridRadios1">
-                    First radio
-                  </label>
-                </div>
-              </div>
+              <select class="form-select" aria-label="Default select example" name="status_pernikahan">
+                <option selected>Open this select menu</option>
+                <option value="MENIKAH">MENIKAH</option>
+                <option value="LAJANG">LAJANG</option>
+              </select>
+            </div>
           </div>
           <div class="row mb-3">
             <label for="inputText" class="col-sm-2 col-form-label">Nama Kepala Keluarga</label>
@@ -127,18 +125,24 @@
             </div>
         </div>
         <div class="row mb-3">
-          <label for="inputDate" class="col-sm-2 col-form-label">Asuransi</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" name="status_asuransi">
+            <label class="col-sm-2 col-form-label">Agama</label>
+            <div class="col-sm-10">
+              <select class="form-select" aria-label="Default select example" name="status_asuransi">
+                <option selected>Open this select menu</option>
+                <option value="BPJS">BPJS</option>
+                <option value="UMUM">UMUM</option>
+              </select>
+            </div>
           </div>
-        </div>
         <div class="row mb-3">
-          <label for="inputDate" class="col-sm-2 col-form-label">id kamar</label>
+          <label for="inputDate" class="col-sm-2 col-form-label">Nama kamar</label>
           <div class="col-sm-10">
-            @foreach ($kamars as $item)
-            <input type="text" class="form-control" name="status_asuransi"value="{{$item->id}}">
-                {{-- <label for="text" >{{$item->id}}</label> --}}
-             @endforeach
+            <select class="form-control" name="id_kamar" id="id_kamar">
+                <option disabled value>pilih nama kamar</option>
+            @foreach ( $kamars as $item)
+                <option value="{{ $item->id }}">{{ $item->nama_kamar}}</option>
+            @endforeach
+        </select>
         </div>
         </div>
         <div class="row mb-3">

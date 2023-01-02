@@ -24,7 +24,7 @@
                 <label class="col-sm-2 col-form-label">Spesialis</label>
                 <div class="col-sm-10">
                   <select class="form-select" aria-label="Default select example" name="spesialis"value="{{$item->spesialis}}">
-                    <option selected>Open this select menu</option>
+                    <option value="{{$item->spesialis}}">{{$item->spesialis}}</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option>

@@ -5,8 +5,9 @@
       <h5 class="card-title">Tambah Kamar</h5>
       <a href="{{url()->previous()}}" class="btn btn-facebook">kembali</a>
       <!-- General Form Elements -->
-      <form action="{{route('petugas.pasienrawatinap.store'$item->id)}}" method="POST" >
+      <form action="{{route('petugas.pasienrawatinap.update',$item->id)}}" method="POST" >
         @csrf
+        @method('put')
         <div class="row mb-3">
           <label for="inputText" class="col-sm-2 col-form-label">No identitas</label>
           <div class="col-sm-10">
@@ -41,9 +42,9 @@
             <label class="col-sm-2 col-form-label">Jenis Kelamin</label>
             <div class="col-sm-10">
               <select class="form-select" aria-label="Default select example"name="jenis_kelamin"value="{{$item->jenis_kelamin}}">
-                <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
+                <option value="{{$item->jenis_kelamin}}">{{$item->jenis_kelamin}}</option>
+                <option value="laki-laki">laki-laki</option>
+                <option value="perempuan">perempuan</option>
               </select>
             </div>
           </div>
@@ -57,9 +58,11 @@
             <label class="col-sm-2 col-form-label">Gol Darah</label>
             <div class="col-sm-10">
               <select class="form-select" aria-label="Default select example" name="golongan_darah"value="{{$item->golongan_darah}}">
-                <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
+                <option value="{{$item->golongan_darah}}">{{$item->golongan_darah}}</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="AB">AB</option>
+                <option value="O">O</option>
               </select>
             </div>
           </div>
@@ -70,44 +73,42 @@
             </div>
           </div>
           <div class="row mb-3">
-            <label for="inputText" class="col-sm-2 col-form-label">Warga Negara</label>
+            <label class="col-sm-2 col-form-label">warga negara</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="warga_negara"value="{{$item->warga_negara}}">
+              <select class="form-select" aria-label="Default select example" name="warga_negara"value="{{$item->warga_negara}}">
+                <option value="{{$item->warga_negara}}">{{$item->warga_negara}}</option>
+                <option value="WNI">WNI</option>
+                <option value="WNA">WNA</option>
+              </select>
             </div>
           </div>
+
           <div class="row mb-3">
             <label class="col-sm-2 col-form-label">Agama</label>
             <div class="col-sm-10">
               <select class="form-select" aria-label="Default select example" name="agama"value="{{$item->agama}}">
-                <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
+                <option value="{{$item->agama}}">{{$item->agama}}</option>
+                <option value="ISLAM">ISLAM</option>
+                <option value="KRISLAM">KRISLAM</option>
+                <option value="BUDHA">BUDHA</option>
+                <option value="KRISTEN">KRISTEN</option>
+                <option value="KATHOLIK">KATHOLIK</option>
+                <option value="HINDU">HINDU</option>
+                <option value="KONGHUCU">KONGHUCU</option>
               </select>
             </div>
           </div>
           <div class="row mb-3">
-            <label class="col-form-label col-sm-2 pt-0">Status Pernikahan</label>
+            <label class="col-sm-2 col-form-label">status pernikahan</label>
             <div class="col-sm-10">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="status_pernikahan" id="gridRadios1" value="{{$item->status_pernikahan}}" checked>
-                <label class="form-check-label" for="gridRadios1">
-                  First radio
-                </label>
-              </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="status_pernikahan" id="gridRadios1" value="{{$item->status_pernikahan}}" checked>
-                  <label class="form-check-label" for="gridRadios1">
-                    First radio
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="status_pernikahan" id="gridRadios1" value="{{$item->status_pernikahan}}" checked>
-                  <label class="form-check-label" for="gridRadios1">
-                    First radio
-                  </label>
-                </div>
-              </div>
+              <select class="form-select" aria-label="Default select example" name="status_pernikahan" value="{{$item->status_pernikahan}}" >
+                <option value="{{$item->status_pernikahan}}">{{$item->status_pernikahan}}</option>
+                <option value="MENIKAH">MENIKAH</option>
+                <option value="LAJANG">LAJANG</option>
+              </select>
+            </div>
           </div>
+
           <div class="row mb-3">
             <label for="inputText" class="col-sm-2 col-form-label">Nama Kepala Keluarga</label>
             <div class="col-sm-10">
@@ -127,11 +128,26 @@
             </div>
         </div>
         <div class="row mb-3">
-          <label for="inputDate" class="col-sm-2 col-form-label">Asuransi</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" name="status_asuransi"value="{{$item->status_asuransi}}">
+            <label class="col-sm-2 col-form-label">asuransi</label>
+            <div class="col-sm-10">
+              <select class="form-select" aria-label="Default select example" name="status_asuransi"value="{{$item->status_asuransi}}">
+                <option value="{{$item->status_asuransi}}">{{$item->status_asuransi}}</option>
+                <option value="BPJS">BPJS</option>
+                <option value="UMUM">UMUM</option>
+              </select>
+            </div>
           </div>
-        </div>
+        <div class="row mb-3">
+            <label for="inputDate" class="col-sm-2 col-form-label">Nama kamar</label>
+            <div class="col-sm-10">
+              <select class="form-control" name="id_kamar" id="id_kamar">
+                  <option disabled value>pilih nama kamar</option>
+              @foreach ( $kamars as $item)
+                  <option value="{{ $item->id }}">{{ $item->nama_kamar}}</option>
+              @endforeach
+          </select>
+          </div>
+          </div>
         <div class="row mb-3">
           {{-- <label class="col-sm-10 col-form-label"></label> --}}
           <div class="col-sm-2 offset-2"><br>

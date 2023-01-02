@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Petugas;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PasienRawatInapRequest;
 use App\Models\Kamar;
 use App\Models\PasienRawatInap;
 use Illuminate\Http\Request;
@@ -13,7 +14,6 @@ class PasienRawatInapController extends Controller
     public function index()
     {
         $data['items'] = PasienRawatInap::all();
-        $data['kamars'] = Kamar::all();
         return view('petugas.pasienrawatinap.index')->with($data);
     }
 
@@ -43,7 +43,7 @@ class PasienRawatInapController extends Controller
         return view('petugas.pasienrawatinap.edit')->with($data);
     }
 
-    public function update(PasienRawatInap $request, $id)
+    public function update(PasienRawatInapRequest $request, $id)
     {
         $data = $request->all();
         $item = PasienRawatInap::findOrFail($id);
