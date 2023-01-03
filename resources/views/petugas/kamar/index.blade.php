@@ -17,14 +17,25 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Brandon Jacob</td>
-            <td>Designer</td>
-            <td>28</td>
-            <td class="text-center"><button class="btn btn-warning">Edit</button>
-                <button class="btn btn-danger" onclick="deleteConfirmation()">Hapus</button></td>
-          </tr>
+            @foreach ($items as $item => $kamar)
+
+            <tr>
+                <th scope="row">{{$item +1}}</th>
+                <td>{{$kamar->nama_kamar}}</td>
+                <td>{{$kamar->kelas}}</td>
+                <td>{{$kamar->harga}}</td>
+                <td class="text-center">
+                    <form method="post" action="{{route('petugas.kamar.destroy',$kamar->id)}}">
+                        <button type="button" class="btn btn-warning">
+                            <a href="{{route('petugas.kamar.edit',$kamar->id)}}">Edit</a>
+                        </button>
+                        @method('delete')
+                        @csrf
+                        <button type="submit" onclick="deleteConfirmation()" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </td>
+            </tr>
+                @endforeach
         </tbody>
       </table>
       <!-- End Table with hoverable rows -->
@@ -34,5 +45,5 @@
 @endsection
 
 @section('content')
-    
+
 @endsection
