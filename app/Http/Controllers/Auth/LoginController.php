@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use App\Notifications\LoginNotification;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 
 class LoginController extends Controller
 {
@@ -44,6 +47,13 @@ class LoginController extends Controller
     {
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'status' => '1'])) {
             $request->session()->regenerate();
+
+            if(Auth::user()->roles_id == 2)
+            {
+                $petugas = User::where('email', $request->email)->first();
+                Notification::send($petugas, new LoginNotification($petugas));
+            }
+
             return redirect()->intended('home');
         }
 
