@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Petugas\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Petugas\KamarController;
 use App\Http\Controllers\Petugas\DokterController;
@@ -44,6 +45,7 @@ Route::group([
         'prefix' => 'petugas',
         'as' => 'petugas.'
     ], function () {
+        Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
         Route::resource('/kamar', KamarController::class);
         Route::resource('/dokter', DokterController::class);
         Route::resource('/pasienrawatinap', PasienRawatInapController::class);
