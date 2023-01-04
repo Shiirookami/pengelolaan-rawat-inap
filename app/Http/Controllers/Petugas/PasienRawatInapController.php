@@ -23,7 +23,7 @@ class PasienRawatInapController extends Controller
         return view('petugas.pasienrawatinap.create')->with($data);
     }
 
-    public function store(Request $request)
+    public function store(PasienRawatInapRequest $request)
     {
         $data = $request->all();
         PasienRawatInap::create($data);
