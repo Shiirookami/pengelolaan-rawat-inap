@@ -31,7 +31,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = RouteServiceProvider::LOGIN;
 
     /**
      * Create a new controller instance.
@@ -45,20 +45,32 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'status' => '1'])) {
-            $request->session()->regenerate();
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            if(Auth::user()->status == 1){
+                $request->session()->regenerate();
 
-            if(Auth::user()->roles_id == 2)
-            {
-                $petugas = User::where('email', $request->email)->first();
-                Notification::send($petugas, new LoginNotification($petugas));
+                if(Auth::user()->roles_id == 2)
+                {
+                    $petugas = User::where('email', $request->email)->first();
+                    Notification::send($petugas, new LoginNotification($petugas));
+                    return redirect()->route('petugas.dashboard.index');
+                } 
+                
+                else if(Auth::user()->roles_id == 1)
+                {
+                    return redirect()->route('admin.dashboard.index');
+                }
+    
+                return redirect()->intended('login');
             }
 
-            return redirect()->intended('home');
+            return back()->withErrors([
+            'email' => 'Email Tidak Aktif',
+            ]);
         }
 
         return back()->withErrors([
-            'email' => 'Email Tidak Aktif',
+            'email' => 'Email/Password Salah',
         ]);
     }
 }
