@@ -45,6 +45,7 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
+        // dd(Auth::attempt(['email' => $request->email, 'password' => $request->password]));
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             if(Auth::user()->status == 1){
                 $request->session()->regenerate();
@@ -60,10 +61,9 @@ class LoginController extends Controller
                 {
                     return redirect()->route('admin.dashboard.index');
                 }
-    
                 return redirect()->intended('login');
             }
-
+            auth()->logout();
             return back()->withErrors([
             'email' => 'Email Tidak Aktif',
             ]);

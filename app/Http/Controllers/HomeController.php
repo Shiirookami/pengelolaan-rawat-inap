@@ -25,6 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // auth()->logout();
+
         // if(Auth::user()->roles_id == 1){
         //     return redirect()->route('admin.dashboard.index');
         // } else if(Auth::user()->roles_id == 2) {
