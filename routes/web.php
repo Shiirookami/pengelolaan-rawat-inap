@@ -7,6 +7,7 @@ use App\Http\Controllers\Petugas\DokterController;
 use App\Http\Controllers\Petugas\PasienRawatInapController;
 use App\Http\Controllers\Petugas\RujukanController;
 use App\Http\Controllers\Petugas\VisitDokterController;
+use App\Http\Controllers\Superadmin\DashboardController as SuperadminDashboardController;
 use App\Http\Controllers\Superadmin\PetugasController;
 
 /*
@@ -36,7 +37,8 @@ Route::group([
         'prefix' => 'admin',
         'as' => 'admin.'
     ], function () {
-        Route::get('/', [PetugasController::class, 'index'])->name('petugas.index');
+        Route::get('/', [SuperadminDashboardController::class, 'index'])->name('dashboard.index');
+        Route::get('/petugas', [PetugasController::class, 'index'])->name('petugas.index');
         Route::put('/petugas/status/{id}', [PetugasController::class, 'updateStatus'])->name('petugas.updateStatus');
         Route::delete('/petugas/{id}', [PetugasController::class, 'destroy'])->name('petugas.destroy');
     });

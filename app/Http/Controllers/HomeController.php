@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('petugas.index');
+        if(Auth::user()->roles_id == 1){
+            return redirect()->route('admin.dashboard.index');
+        } else if(Auth::user()->roles_id == 2) {
+            return redirect()->route('petugas.dashboard.index');
+        }
     }
 }
