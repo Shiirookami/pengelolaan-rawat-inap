@@ -32,7 +32,11 @@
 
     <!-- Page Wrapper -->
     <div id="wrapper">
-        @include('layouts.admin_sidebar')
+        @if (Auth::user()->roles_id == 1)
+            @include('layouts.admin_sidebar')
+        @elseif (Auth::user()->roles_id == 2)
+            @include('layouts.petugas_sidebar')
+        @endif
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
                 @include('layouts.admin_navbar')
