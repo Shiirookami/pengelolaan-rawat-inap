@@ -1,4 +1,7 @@
 @extends('layouts.dashboard_master')
+@section('title')
+    Halaman Tambah Visit Dokter
+@endsection
 @section('content')
 <div class="card">
     <div class="card-body">
@@ -54,14 +57,15 @@
                 <input type="text" class="form-control" name="perkembangan">
               </div>
             </div>
-        <div class="row mb-3">
-          {{-- <label class="col-sm-10 col-form-label"></label> --}}
-          <div class="col-sm-2 offset-2"><br>
-            <button type="submit" class="btn btn-primary">Submits</button>
-          </div>
-        </div>
-      </form><!-- End General Form Elements -->
+                <div class="row mb-3">
+                    {{-- <label class="col-sm-10 col-form-label"></label> --}}
+                    <div class="col-sm-2 offset-2"><br>
+                        <button type="submit" class="btn btn-primary">Submits</button>
+                    </div>
+                </div>
+            </form><!-- End General Form Elements -->
 
+        </div>
     </div>
   </div>
   @endsection

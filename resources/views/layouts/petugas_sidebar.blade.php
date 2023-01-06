@@ -12,7 +12,7 @@
     <hr class="sidebar-divider my-0">
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="{{ route('admin.dashboard.index') }}">
+        <a class="nav-link" href="{{ route('petugas.dashboard.index') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span>
         </a>
@@ -22,9 +22,33 @@
     <!-- Heading -->
     <div class="sidebar-heading"> Interface </div>
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('admin.petugas.index') }}">
+        <a class="nav-link" href="{{ route('petugas.dokter.index') }}">
             <i class="fas fa-solid fa-user-doctor"></i>
-            <span>Petugas</span>
+            <span>Dokter</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('petugas.kamar.index') }}">
+            <i class="fas fa-solid fa-hospital"></i>
+            <span>Kamar</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('petugas.pasienrawatinap.index') }}">
+            <i class="fas fa-solid fa-bed"></i>
+            <span>Pasien</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('petugas.visitdokter.index') }}">
+            <i class="fas fa-solid fa-star-of-life"></i>
+            <span>Visit Dokter</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('petugas.rujukan.index') }}">
+            <i class="fas fa-solid fa-star-of-life"></i>
+            <span>Rujukan</span>
         </a>
     </li>
     <!-- Divider -->

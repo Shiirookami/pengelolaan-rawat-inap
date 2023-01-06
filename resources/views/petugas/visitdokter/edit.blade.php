@@ -1,4 +1,7 @@
 @extends('layouts.dashboard_master')
+@section('title')
+    Halaman Edit Visit Dokter
+@endsection
 @section('content')
 <div class="card">
     <div class="card-body">
