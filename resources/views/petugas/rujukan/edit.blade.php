@@ -8,29 +8,31 @@
             <h5 class="card-title">Tambah Rujukan</h5>
             <a href="{{ url()->previous() }}" class="btn btn-facebook">Kembali</a>
             <!-- General Form Elements -->
-            <form action="{{route('petugas.rujukan.store')}}" method="POST">
+            <form action="{{route('petugas.rujukan.update',$rujukans->id)}}" method="POST">
                 @csrf
+                @method('put')
                     <div class="row mb-3">
                         <label for="inputNumber" class="col-sm-2 col-form-label">Tanggal</label>
                         <div class="col-sm-10">
-                            <input type="date" class="form-control" name="tanggal">
+                            <input type="date" class="form-control" name="tanggal" value="{{$rujukans -> tanggal}}">
                         </div>
                     </div>
                 <div class="row mb-3">
                     <label for="inputNumber" class="col-sm-2 col-form-label">Nama Rumah Sakit</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="nama_rumah_sakit">
+                        <input type="text" class="form-control" name="nama_rumah_sakit"value="{{$rujukans -> nama_rumah_sakit}}">
+                    </div>
                     </div>
                 <div class="row mb-3">
                     <label for="inputNumber" class="col-sm-2 col-form-label">Diagnose/Gejala</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="diagnosis">
+                        <input type="text" class="form-control" name="diagnosis"value="{{$rujukans -> diagnosis}}">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="inputNumber" class="col-sm-2 col-form-label">Pertolongan Pertama</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="pertolongan_pertama">
+                        <input type="text" class="form-control" name="pertolongan_pertama"value="{{$rujukans -> pertolongan_pertama}}">
                     </div>
                 </div>
                 <div class="row mb-3">

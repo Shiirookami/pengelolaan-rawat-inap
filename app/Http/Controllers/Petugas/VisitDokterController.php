@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Petugas;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\VisitDokterStoreRequest;
 use App\Http\Requests\VisitDokterUpdateRequest;
+use App\Models\Dokter;
+use App\Models\PasienRawatInap;
 use Illuminate\Http\Request;
 use App\Models\VisitDokter;
 use Illuminate\Support\Facades\Session;
@@ -19,7 +21,9 @@ class VisitDokterController extends Controller
 
     public function create()
     {
-        return view('petugas.dokter.create');
+        $data['dokter'] = Dokter::all();
+        $data['visit'] = PasienRawatInap::all();
+        return view('petugas.visitdokter.create')->with($data);
     }
 
     public function store(VisitDokterStoreRequest $request)
@@ -34,7 +38,7 @@ class VisitDokterController extends Controller
     {
         //Cari berdasarkan id rawat inap atau cek kondisi apakah id merupakan urutan paling bawah
         $data['item'] = VisitDokter::findOrFail($id);
-        return view('petugas.pasienrawatinap.edit')->with($data);
+        return view('petugas.visitdokter.edit')->with($data);
     }
 
     public function update(VisitDokterUpdateRequest $request, $id)
@@ -43,12 +47,14 @@ class VisitDokterController extends Controller
         $item = VisitDokter::findOrFail($id);
         $item->update($data);
         Session::flash('status', 'Data Berhasil Diubah');
-        return redirect()->route('petugas.pasienrawatinap.index');
+        return redirect()->route('petugas.visitdokter.index');
     }
 
     public function destroy($id)
     {
-        VisitDokterUpdateRequest::onlyTrashed()->findOrFail($id)->forceDelete();
+        // VisitDokterUpdateRequest::onlyTrashed()->findOrFail($id)->forceDelete();
+        $visit_dokter = VisitDokter::findOrFail($id);
+        $visit_dokter -> delete();
         Session::flash('status', 'Data Berhasil Dihapus');
         return redirect()->route('petugas.visitdokter.index');
     }

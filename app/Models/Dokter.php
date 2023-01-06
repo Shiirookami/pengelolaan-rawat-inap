@@ -10,4 +10,5 @@ class Dokter extends Model
     use SoftDeletes;
     protected $fillable = ['nama_dokter', 'no_identitas', 'spesialis', 'jadwal_dokter'];
     protected $hidden = [];
+
 }
