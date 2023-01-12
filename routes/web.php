@@ -47,3 +47,4 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('/visitdokter', VisitDokterController::class);
     });
 });
+
