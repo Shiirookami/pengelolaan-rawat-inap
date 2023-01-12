@@ -8,40 +8,44 @@
             <h5 class="card-title">Tambah Rujukan</h5>
             <a href="{{ url()->previous() }}" class="btn btn-facebook">Kembali</a>
             <!-- General Form Elements -->
-            <form action="{{route('petugas.rujukan.update',$rujukans->id)}}" method="POST">
+            <form action="{{ route('petugas.rujukan.update', $rujukans->id) }}" method="POST">
                 @csrf
                 @method('put')
-                    <div class="row mb-3">
-                        <label for="inputNumber" class="col-sm-2 col-form-label">Tanggal</label>
-                        <div class="col-sm-10">
-                            <input type="date" class="form-control" name="tanggal" value="{{$rujukans -> tanggal}}">
-                        </div>
-                    </div>
                 <div class="row mb-3">
-                    <label for="inputNumber" class="col-sm-2 col-form-label">Nama Rumah Sakit</label>
+                    <label for="tanggal" class="col-sm-2 col-form-label">Tanggal</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="nama_rumah_sakit"value="{{$rujukans -> nama_rumah_sakit}}">
-                    </div>
-                    </div>
-                <div class="row mb-3">
-                    <label for="inputNumber" class="col-sm-2 col-form-label">Diagnose/Gejala</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" name="diagnosis"value="{{$rujukans -> diagnosis}}">
+                        <input id="tanggal" type="date" class="form-control" name="tanggal"
+                            value="{{ $rujukans->tanggal }}" required>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="inputNumber" class="col-sm-2 col-form-label">Pertolongan Pertama</label>
+                    <label for="nama_rumah_sakit" class="col-sm-2 col-form-label">Nama Rumah Sakit</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="pertolongan_pertama"value="{{$rujukans -> pertolongan_pertama}}">
+                        <input id="nama_rumah_sakit" type="text" class="form-control" name="nama_rumah_sakit"
+                            value="{{ $rujukans->nama_rumah_sakit }}" required>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="inputNumber" class="col-sm-2 col-form-label">Nama</label>
+                    <label for="diagnosis" class="col-sm-2 col-form-label">Diagnose/Gejala</label>
                     <div class="col-sm-10">
-                        <select name="id_pasien" id="">
-                        <option value="disabled">-- pilih nama pasien --</option>
-                            @foreach ($pasiens as $item)
-                                <option value="{{$item -> id}}">{{$item -> nama_lengkap}}</option>
+                        <input id="diagnosis" type="text" class="form-control" name="diagnosis"
+                            value="{{ $rujukans->diagnosis }}" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="pertolongan_pertama" class="col-sm-2 col-form-label">Pertolongan Pertama</label>
+                    <div class="col-sm-10">
+                        <input id="pertolongan_pertama" type="text" class="form-control" name="pertolongan_pertama"
+                            value="{{ $rujukans->pertolongan_pertama }}" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="inputNumber" class="col-sm-2 col-form-label">Nama Pasien</label>
+                    <div class="col-sm-10">
+                        <select class="form-select" name="id_pasien" id="id_pasien" required>
+                            @foreach ($pasiens as $pasien)
+                                <option value="{{ $pasien->id }}" {{ $pasien->id == $item->id_pasien ? 'selected' : '' }}>
+                                    {{ $pasien->nama_lengkap }}</option>
                             @endforeach
                         </select>
                     </div>

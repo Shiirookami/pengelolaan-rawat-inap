@@ -24,12 +24,12 @@
                             <th scope="col">Pekerjaan</th>
                             <th scope="col">Warga Negara</th>
                             <th scope="col">Agama</th>
-                            <th scope="col">status Pernikahan</th>
+                            <th scope="col">Status Pernikahan</th>
                             <th scope="col">Nama Kepala Keluarga</th>
                             <th scope="col">Pekerjaan Kepala Keluarga</th>
                             <th scope="col">No HP Yang Bertanggung Jawab</th>
                             <th scope="col">Asuransi</th>
-                            <th scope="col">Nama kamar</th>
+                            <th scope="col">Nama Kamar</th>
                             <th scope="col" class="text-center">Action</th>
                         </tr>
                     </thead>
