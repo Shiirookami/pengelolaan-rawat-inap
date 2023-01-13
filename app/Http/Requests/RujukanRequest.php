@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class DokterRequest extends FormRequest
+class RujukanRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,12 +24,11 @@ class DokterRequest extends FormRequest
     public function rules()
     {
         return [
-            'nama_dokter' => ['required'],
-            'no_identitas' => ['required', 'numeric', 'unique:dokters'],
-            'spesialis' => ['required'],
-            'hari_mulai' => ['required'],
-            'hari_berakhir' => ['required'],
-            'jam' => ['required'],
+            'tanggal' => ['required'],
+            'nama_rumah_sakit' => ['required'],
+            'diagnosis' => ['required'],
+            'pertolongan_pertama' => ['required'],
+            'id_pasien' => ['required', 'exists:pasien_rawat_inaps,id'],
         ];
     }
 }

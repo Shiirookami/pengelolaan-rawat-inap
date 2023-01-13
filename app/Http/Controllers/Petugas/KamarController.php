@@ -37,7 +37,7 @@ class KamarController extends Controller
 
     public function edit($id)
     {
-        $data['item'] = Kamar::findOrFail($id);
+        $data['item'] = Kamar::find($id);
         return view('petugas.kamar.edit')->with($data);
     }
 
@@ -52,7 +52,9 @@ class KamarController extends Controller
 
     public function destroy($id)
     {
-        Kamar::onlyTrashed()->findOrFail($id)->forceDelete();
+        $kamar = Kamar::findOrFail($id);
+        $kamar->delete();
+        // Kamar::onlyTrashed()->findOrFail($id)->forceDelete();
         Session::flash('status', 'Data Berhasil Dihapus');
         return redirect()->route('petugas.kamar.index');
     }

@@ -35,7 +35,7 @@ class PasienRawatInapRequest extends FormRequest
             'pekerjaan' => ['required'],
             'warga_negara' => ['required', 'in:WNI,WNA'],
             'agama' => ['required'],
-            'status_pernikahan' => ['required', 'in:1,0'],
+            'status_pernikahan' => ['required', 'in:MENIKAH,LAJANG'],
             'nama_kepala_keluarga' => ['required'],
             'pekerjaan_kepala_keluarga' => ['required'],
             'no_hp_orang_bertanggung_jawab' => ['required', 'numeric', 'min:11'],

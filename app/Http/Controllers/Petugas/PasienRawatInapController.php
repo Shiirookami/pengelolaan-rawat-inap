@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Petugas;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PasienRawatInapRequest;
 use App\Models\Kamar;
 use App\Models\PasienRawatInap;
 use Illuminate\Http\Request;
@@ -22,7 +23,7 @@ class PasienRawatInapController extends Controller
         return view('petugas.pasienrawatinap.create')->with($data);
     }
 
-    public function store(Request $request)
+    public function store(PasienRawatInapRequest $request)
     {
         $data = $request->all();
         PasienRawatInap::create($data);
@@ -42,7 +43,7 @@ class PasienRawatInapController extends Controller
         return view('petugas.pasienrawatinap.edit')->with($data);
     }
 
-    public function update(PasienRawatInap $request, $id)
+    public function update(PasienRawatInapRequest $request, $id)
     {
         $data = $request->all();
         $item = PasienRawatInap::findOrFail($id);
@@ -53,7 +54,9 @@ class PasienRawatInapController extends Controller
 
     public function destroy($id)
     {
-        PasienRawatInap::onlyTrashed()->findOrFail($id)->forceDelete();
+        // PasienRawatInap::onlyTrashed()->findOrFail($id)->forceDelete();
+        $pasien = PasienRawatInap::findOrFail($id);
+        $pasien->delete();
         Session::flash('status', 'Data Berhasil Dihapus');
         return redirect()->route('petugas.pasienrawatinap.index');
     }
