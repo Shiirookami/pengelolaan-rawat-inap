@@ -29,7 +29,9 @@
 </head>
 
 <body id="page-top">
-
+    @php
+        $routeName = Route::currentRouteName();
+    @endphp
     <!-- Page Wrapper -->
     <div id="wrapper">
         @if (Auth::user()->roles_id == 1)
@@ -126,9 +128,6 @@
         }
     </script>
 
-    @stack('scripts')
-
-
     <script type="text/javascript">
         $(document).ready(function() {
             $('#mytable').DataTable();
@@ -157,7 +156,7 @@
     <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.print.min.js"></script>
 
-
+    @stack('scripts')
 </body>
 
 </html>
