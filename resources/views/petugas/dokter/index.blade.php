@@ -34,7 +34,7 @@
                                 class="d-inline">
                                 @method('delete')
                                 @csrf
-                                <button type="submit" onclick="deleteConfirmation()"
+                                <button type="button" onclick="deleteConfirmation('{{ $dokter->nama_dokter }}')"
                                     class="btn btn-danger btn-sm inline-block">Delete</button>
                             </form>
                         </td>
