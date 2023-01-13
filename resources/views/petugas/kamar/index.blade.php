@@ -6,7 +6,9 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">Kelola Kamar</h5>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <a href="{{ route('petugas.kamar.create') }}" class="btn btn-primary mb-2">Tambah</a>
+            </div>
             <!-- Table with hoverable rows -->
             <table class="table table-hover" id="mytable">
                 <thead>
