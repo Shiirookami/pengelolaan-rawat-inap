@@ -23,16 +23,16 @@
                         <tr>
                             <th scope="row">{{ $item + 1 }}</th>
                             <td>{{ $kamar->nama_kamar }}</td>
-                            <td>{{ $kamar->kelas }}</td>
+                            <td>{{ $kamar->kelas == '1' ? 'VIP' : 'Ekonomi' }}</td>
                             <td>{{ $kamar->harga }}</td>
                             <td class="text-center">
-                                <form method="post" action="{{ route('petugas.kamar.destroy', $kamar->id) }}">
-                                    <button type="button" class="btn btn-warning">
-                                        <a href="{{ route('petugas.kamar.edit', $kamar->id) }}">Edit</a>
-                                    </button>
+                                <a class="btn btn-warning btn-sm"
+                                    href="{{ route('petugas.kamar.edit', $kamar->id) }}">Edit</a>
+                                <form method="post" action="{{ route('petugas.kamar.destroy', $kamar->id) }}"
+                                    class="d-inline">
                                     @method('delete')
                                     @csrf
-                                    <button type="submit" onclick="deleteConfirmation()"
+                                    <button type="button" onclick="deleteConfirmation('{{ $kamar->nama_kamar }}')"
                                         class="btn btn-danger btn-sm">Delete</button>
                                 </form>
                             </td>

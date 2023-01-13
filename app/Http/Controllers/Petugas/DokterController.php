@@ -23,6 +23,8 @@ class DokterController extends Controller
     public function store(DokterRequest $request)
     {
         $data = $request->all();
+        $jadwal = $request->input('hari_mulai') . " - " . $request->input('hari_berakhir') . " / " . $request->input('jam');
+        $data['jadwal_dokter'] = $jadwal;
         Dokter::create($data);
         Session::flash('status', 'Data Berhasil Dimasukkan');
         return redirect()->route('petugas.dokter.index');
@@ -54,6 +56,6 @@ class DokterController extends Controller
         $dokter = Dokter::findOrFail($id);
         $dokter->delete();
         Session::flash('status', 'Data Berhasil Dihapus');
-        return redirect()->route('petugas.kamar.index');
+        return redirect()->route('petugas.dokter.index');
     }
 }

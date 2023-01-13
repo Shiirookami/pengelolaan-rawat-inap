@@ -55,14 +55,14 @@
                                 <td>{{ $pasien->status_asuransi }}</td>
                                 <td>{{ $pasien->kamar->nama_kamar }}</td>
                                 <td class="text-center">
+                                    <a class="btn btn-warning btn-sm"
+                                        href="{{ route('petugas.pasienrawatinap.edit', $pasien->id) }}">Edit</a>
                                     <form method="post"
-                                        action="{{ route('petugas.pasienrawatinap.destroy', $pasien->id) }}">
-                                        <button type="button" class="btn btn-warning">
-                                            <a href="{{ route('petugas.pasienrawatinap.edit', $pasien->id) }}">Edit</a>
-                                        </button>
+                                        action="{{ route('petugas.pasienrawatinap.destroy', $pasien->id) }}"
+                                        class="d-inline">
                                         @method('delete')
                                         @csrf
-                                        <button type="submit" onclick="deleteConfirmation()"
+                                        <button type="button" onclick="deleteConfirmation('{{ $pasien->nama_lengkap }}')"
                                             class="btn btn-danger btn-sm">Delete</button>
                                     </form>
                                 </td>

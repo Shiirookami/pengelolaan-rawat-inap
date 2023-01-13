@@ -3,6 +3,13 @@
     Halaman Edit Dokter
 @endsection
 @section('content')
+    @php
+        $data = explode('/', $item->jadwal_dokter);
+        $hari = explode('-', $data[0]);
+        $hari_mulai = trim($hari[0]);
+        $hari_berakhir = trim($hari[1]);
+        $jam = $data[1];
+    @endphp
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">Edit Dokter</h5>
@@ -36,12 +43,12 @@
                     <label for="hariMulai" class="col-sm-2 col-form-label">Hari Mulai</label>
                     <div class="col-sm-10">
                         <select class="form-select" aria-label="Default select example" name="hariMulai" required>
-                            <option value="Senin">Senin</option>
-                            <option value="Selasa">Selasa</option>
-                            <option value="Rabu">Rabu</option>
-                            <option value="Kamis">Kamis</option>
-                            <option value="Juma'at">Juma'at</option>
-                            <option value="Sabtu">Sabtu</option>
+                            <option value="Senin" {{ $hari_mulai == 'Senin' ? 'selected' : '' }}>Senin</option>
+                            <option value="Selasa" {{ $hari_mulai == 'Selasa' ? 'selected' : '' }}>Selasa</option>
+                            <option value="Rabu" {{ $hari_mulai == 'Rabu' ? 'selected' : '' }}>Rabu</option>
+                            <option value="Kamis" {{ $hari_mulai == 'Kamis' ? 'selected' : '' }}>Kamis</option>
+                            <option value="Juma'at" {{ $hari_mulai == "Jum'at" ? 'selected' : '' }}>Juma'at</option>
+                            <option value="Sabtu" {{ $hari_mulai == 'Sabtu' ? 'selected' : '' }}>Sabtu</option>
                         </select>
                     </div>
                 </div>
@@ -49,19 +56,19 @@
                     <label for="hariBerakhir" class="col-sm-2 col-form-label">Hari Berakhir</label>
                     <div class="col-sm-10">
                         <select class="form-select" aria-label="Default select example" name="hariBerakhir" required>
-                            <option value="Senin">Senin</option>
-                            <option value="Selasa">Selasa</option>
-                            <option value="Rabu">Rabu</option>
-                            <option value="Kamis">Kamis</option>
-                            <option value="Juma'at">Juma'at</option>
-                            <option value="Sabtu">Sabtu</option>
+                            <option value="Senin" {{ $hari_berakhir == 'Senin' ? 'selected' : '' }}>Senin</option>
+                            <option value="Selasa" {{ $hari_berakhir == 'Selasa' ? 'selected' : '' }}>Selasa</option>
+                            <option value="Rabu" {{ $hari_berakhir == 'Rabu' ? 'selected' : '' }}>Rabu</option>
+                            <option value="Kamis" {{ $hari_berakhir == 'Kamis' ? 'selected' : '' }}>Kamis</option>
+                            <option value="Juma'at" {{ $hari_berakhir == "Jum'at" ? 'selected' : '' }}>Juma'at</option>
+                            <option value="Sabtu" {{ $hari_berakhir == 'Sabtu' ? 'selected' : '' }}>Sabtu</option>
                         </select>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="jam" class="col-sm-2 col-form-label">Jam</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="jam" required>
+                        <input type="text" class="form-control" name="jam" required value="{{ $jam }}">
                     </div>
                 </div>
                 {{-- <div class="row mb-3">
