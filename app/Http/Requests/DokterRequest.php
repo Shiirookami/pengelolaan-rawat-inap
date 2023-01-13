@@ -25,9 +25,11 @@ class DokterRequest extends FormRequest
     {
         return [
             'nama_dokter' => ['required'],
-            'no_identitas' => ['required', 'numeric'],
+            'no_identitas' => ['required', 'numeric', 'unique:dokters'],
             'spesialis' => ['required'],
-            'jadwal_dokter' => ['required']
+            'hari_mulai' => ['required'],
+            'hari_berakhir' => ['required'],
+            'jam' => ['required'],
         ];
     }
 }
