@@ -11,25 +11,26 @@
             <form action="{{ route('petugas.kamar.store') }}" method="POST">
                 @csrf
                 <div class="row mb-3">
-                    <label for="inputText" class="col-sm-2 col-form-label">Nama Kamar</label>
+                    <label for="nama_kamar" class="col-sm-2 col-form-label">Nama Kamar</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="nama_kamar" id="nama_kamar">
+                        <input type="text" class="form-control" name="nama_kamar" id="nama_kamar" required>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label class="col-sm-2 col-form-label">kelas</label>
+                    <label for="kelas" class="col-sm-2 col-form-label">Kelas</label>
                     <div class="col-sm-10">
-                        <select class="form-select" aria-label="Default select example"name="kelas"id="kelas">
-                            <option selected></option>
+                        <select class="form-select" aria-label="Default select example"name="kelas"id="kelas"
+                            required>
+                            <option value="" disabled selected>~Pilih Kamar~</option>
                             <option value="1">VIP</option>
                             <option value="2">EKOMOMI</option>
                         </select>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="inputDate" class="col-sm-2 col-form-label">Harga</label>
+                    <label for="harga" class="col-sm-2 col-form-label">Harga</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="harga" id="harga">
+                        <input type="text" class="form-control" name="harga" id="harga" required>
                     </div>
                 </div>
                 <div class="row mb-3">

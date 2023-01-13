@@ -30,10 +30,10 @@ Route::get('/', function () {
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group([
-    // 'middleware' => 'auth'
+    'middleware' => 'auth'
 ], function () {
     Route::group([
-        // 'middleware' => 'role:admin',
+        'middleware' => 'role:admin',
         'prefix' => 'admin',
         'as' => 'admin.'
     ], function () {
@@ -43,7 +43,7 @@ Route::group([
         Route::delete('/petugas/{id}', [PetugasController::class, 'destroy'])->name('petugas.destroy');
     });
     Route::group([
-        // 'middleware' => 'role:petugas',
+        'middleware' => 'role:petugas',
         'prefix' => 'petugas',
         'as' => 'petugas.'
     ], function () {
