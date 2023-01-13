@@ -22,7 +22,8 @@ class VisitDokterController extends Controller
     public function create()
     {
         $data['dokter'] = Dokter::all();
-        $data['visit'] = PasienRawatInap::all();
+        $id_pasien = VisitDokter::pluck('id_pasien_rawat_inap')->all();
+        $data['pasien'] = PasienRawatInap::whereNotIn('id', $id_pasien)->get();
         return view('petugas.visitdokter.create')->with($data);
     }
 
