@@ -29,9 +29,9 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="hariMulai" class="col-sm-2 col-form-label">Hari Mulai</label>
+                    <label for="hari_mulai" class="col-sm-2 col-form-label">Hari Mulai</label>
                     <div class="col-sm-10">
-                        <select id="hariMulai" class="form-select" aria-label="Default select example" name="hariMulai"
+                        <select id="hari_mulai" class="form-select" aria-label="Default select example" name="hari_mulai"
                             required>
                             <option value="" disabled selected>~Pilih Hari Mulai~</option>
                             <option value="Senin">Senin</option>
@@ -44,10 +44,10 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="hariBerakhir" class="col-sm-2 col-form-label">Hari Berakhir</label>
+                    <label for="hari_berakhir" class="col-sm-2 col-form-label">Hari Berakhir</label>
                     <div class="col-sm-10">
-                        <select id="hariBerakhir" class="form-select" aria-label="Default select example"
-                            name="hariBerakhir" required>
+                        <select id="hari_berakhir" class="form-select" aria-label="Default select example"
+                            name="hari_berakhir" required>
                             <option value="" disabled selected>~Pilih Hari Berakhir~</option>
                             <option value="Senin">Senin</option>
                             <option value="Selasa">Selasa</option>

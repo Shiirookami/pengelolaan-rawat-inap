@@ -26,7 +26,7 @@
                     <div class="col-sm-10">
                         <select id="id_pasien_rawat_inap" class="form-control" name="id_pasien_rawat_inap" required>
                             <option value="" disabled selected>~Pilih Nama Pasien~</option>
-                            @foreach ($visit as $item)
+                            @foreach ($pasien as $item)
                                 <option value="{{ $item->id }}">{{ $item->nama_lengkap }}</option>
                             @endforeach
                         </select>

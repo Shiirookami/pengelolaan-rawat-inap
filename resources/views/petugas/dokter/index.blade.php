@@ -28,14 +28,14 @@
                         <td>{{ $dokter->spesialis }}</td>
                         <td>{{ $dokter->jadwal_dokter }}</td>
                         <td class="text-center">
-                            <form method="post" action="{{ route('petugas.dokter.destroy', $dokter->id) }}">
-                                <button type="button" class="btn btn-warning">
-                                    <a href="{{ route('petugas.dokter.edit', $dokter->id) }}">Edit</a>
-                                </button>
+                            <a class="btn btn-warning btn-sm"
+                                href="{{ route('petugas.dokter.edit', $dokter->id) }}">Edit</a>
+                            <form method="post" action="{{ route('petugas.dokter.destroy', $dokter->id) }}"
+                                class="d-inline">
                                 @method('delete')
                                 @csrf
-                                <button type="submit" onclick="deleteConfirmation()"
-                                    class="btn btn-danger btn-sm">Delete</button>
+                                <button type="button" onclick="deleteConfirmation('{{ $dokter->nama_dokter }}')"
+                                    class="btn btn-danger btn-sm inline-block">Delete</button>
                             </form>
                         </td>
                     </tr>

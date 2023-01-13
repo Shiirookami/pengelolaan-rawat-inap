@@ -38,15 +38,15 @@
                                 <td>{{ $rujukan->diagnosis }}</td>
                                 <td>{{ $rujukan->pertolongan_pertama }}</td>
                                 <td class="text-center">
-                                    <form method="post" action="{{ route('petugas.rujukan.destroy', $rujukan->id) }}">
-                                        <button type="button" class="btn btn-warning">
-                                            <a href="{{ route('petugas.rujukan.edit', $rujukan->id) }}">Edit</a>
-                                        </button>
+                                    {{-- <a class="btn btn-warning"
+                                        href="{{ route('petugas.rujukan.edit', $rujukan->id) }}">Edit</a>
+                                    <form method="post" action="{{ route('petugas.rujukan.destroy', $rujukan->id) }}"
+                                        class="d-inline">
                                         @method('delete')
                                         @csrf
-                                        <button type="submit" onclick="deleteConfirmation()"
+                                        <button type="button" onclick="deleteConfirmation('{{  }}')"
                                             class="btn btn-danger btn-sm">Delete</button>
-                                    </form>
+                                    </form> --}}
                                 </td>
                             </tr>
                         @endforeach

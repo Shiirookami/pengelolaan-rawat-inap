@@ -39,14 +39,16 @@
                             {{-- <td>{{$visit_dokter->pasien->no_identitas}}</td> --}}
                             <td>{{ $visit_dokter->pasien->jenis_kelamin }}</td>
                             <td class="text-center">
-                                <form method="post" action="{{ route('petugas.visitdokter.destroy', $visit_dokter->id) }}">
+                                <a class="btn btn-warning btn-sm"
+                                    href="{{ route('petugas.visitdokter.edit', $visit_dokter->id) }}">Edit</a>
+                                {{-- <form method="post"
+                                    action="{{ route('petugas.visitdokter.destroy', $visit_dokter->id) }}">
                                     <button type="button" class="btn btn-warning">
-                                        <a href="{{ route('petugas.visitdokter.edit', $visit_dokter->id) }}">Edit</a>
                                     </button>
                                     @method('delete')
                                     @csrf
                                     <button type="submit" onclick="deleteConfirmation()"
-                                        class="btn btn-danger">Delete</button>
+                                        class="btn btn-danger">Delete</button> --}}
                                 </form>
                             </td>
                     @endforeach
