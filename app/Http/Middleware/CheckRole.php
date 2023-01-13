@@ -16,11 +16,11 @@ class CheckRole
      */
     public function handle(Request $request, Closure $next, string $role)
     {
-        if ($role == 'admin' && auth()->user()->role_id != 1) {
+        if ($role == 'admin' && auth()->user()->roles_id != 1) {
             return redirect()->back();
         }
 
-        if ($role == 'petugas' && auth()->user()->role_id != 2) {
+        if ($role == 'petugas' && auth()->user()->roles_id != 2) {
             return redirect()->back();
         }
         return $next($request);

@@ -3,8 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use App\Notifications\LoginNotification;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 
 class LoginController extends Controller
 {
@@ -26,7 +31,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = RouteServiceProvider::LOGIN;
 
     /**
      * Create a new controller instance.
@@ -36,5 +41,36 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function login(Request $request)
+    {
+        // dd(Auth::attempt(['email' => $request->email, 'password' => $request->password]));
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            if(Auth::user()->status == 1){
+                $request->session()->regenerate();
+
+                if(Auth::user()->roles_id == 2)
+                {
+                    $petugas = User::where('email', $request->email)->first();
+                    Notification::send($petugas, new LoginNotification($petugas));
+                    return redirect()->route('petugas.dashboard.index');
+                } 
+                
+                else if(Auth::user()->roles_id == 1)
+                {
+                    return redirect()->route('admin.dashboard.index');
+                }
+                return redirect()->intended('login');
+            }
+            auth()->logout();
+            return back()->withErrors([
+            'email' => 'Email Tidak Aktif',
+            ]);
+        }
+
+        return back()->withErrors([
+            'email' => 'Email/Password Salah',
+        ]);
     }
 }

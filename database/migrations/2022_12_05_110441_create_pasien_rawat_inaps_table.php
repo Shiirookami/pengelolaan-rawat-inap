@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('pekerjaan');
             $table->enum('warga_negara', ['WNI', 'WNA']);
             $table->string('agama');
-            $table->char('status_pernikahan', 1);
+            $table->enum('status_pernikahan', ['MENIKAH', 'LAJANG']);
             $table->string('nama_kepala_keluarga');
             $table->string('pekerjaan_kepala_keluarga');
             $table->char('no_hp_orang_bertanggung_jawab', 12);
