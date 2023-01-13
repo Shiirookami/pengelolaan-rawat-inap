@@ -8,8 +8,6 @@ use App\Models\Kamar;
 
 class PasienRawatInap extends Model
 {
-    protected $table = 'pasien_rawat_inaps';
-
     use SoftDeletes;
 
     protected $fillable = [
