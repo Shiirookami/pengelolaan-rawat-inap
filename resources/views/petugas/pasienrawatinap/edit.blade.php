@@ -116,9 +116,9 @@
                     <div class="col-sm-10">
                         <select id="status_pernikahan" class="form-select" aria-label="Default select example"
                             name="status_pernikahan" value="{{ $item->status_pernikahan }}" required>
-                            <option value="MENIKAH" {{ $item->status_pernikahan == 'MENIKAH' ? 'selected' : '' }}>MENIKAH
+                            <option value="Menikah" {{ $item->status_pernikahan == 'Menikah' ? 'selected' : '' }}>Menikah
                             </option>
-                            <option value="LAJANG" {{ $item->status_pernikahan == 'LAJANG' ? 'selected' : '' }}>LAJANG
+                            <option value="Lajang" {{ $item->status_pernikahan == 'Lajang' ? 'selected' : '' }}>Lajang
                             </option>
                         </select>
                     </div>

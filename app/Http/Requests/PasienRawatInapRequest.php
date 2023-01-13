@@ -24,7 +24,7 @@ class PasienRawatInapRequest extends FormRequest
     public function rules()
     {
         return [
-            'no_identitas' => ['required', 'numeric'],
+            'no_identitas' => ['required', 'numeric', 'unique:pasien_rawat_inaps'],
             'nama_lengkap' => ['required'],
             'no_hp' => ['required', 'numeric', 'min:11'],
             'alamat' => ['required'],
@@ -35,7 +35,7 @@ class PasienRawatInapRequest extends FormRequest
             'pekerjaan' => ['required'],
             'warga_negara' => ['required', 'in:WNI,WNA'],
             'agama' => ['required'],
-            'status_pernikahan' => ['required', 'in:MENIKAH,LAJANG'],
+            'status_pernikahan' => ['required', 'in:Menikah,Lajang'],
             'nama_kepala_keluarga' => ['required'],
             'pekerjaan_kepala_keluarga' => ['required'],
             'no_hp_orang_bertanggung_jawab' => ['required', 'numeric', 'min:11'],

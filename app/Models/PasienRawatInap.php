@@ -8,7 +8,10 @@ use App\Models\Kamar;
 
 class PasienRawatInap extends Model
 {
+    protected $table = 'pasien_rawat_inaps';
+
     use SoftDeletes;
+
     protected $fillable = [
         'no_identitas', 'nama_lengkap', 'no_hp', 'alamat',
         'tanggal_lahir', 'jenis_kelamin', 'tanggal_masuk',

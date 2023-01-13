@@ -6,12 +6,12 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">Tambah Pasien Rawat Inap</h5>
-            <a href="{{ url()->previous() }}" class="btn btn-facebook">kembali</a>
+            <a href="{{ url()->previous() }}" class="btn btn-facebook">Kembali</a>
             <!-- General Form Elements -->
             <form action="{{ route('petugas.pasienrawatinap.store') }}" method="POST">
                 @csrf
                 <div class="row mb-3">
-                    <label for="no_identitas" class="col-sm-2 col-form-label">No identitas</label>
+                    <label for="no_identitas" class="col-sm-2 col-form-label">No Identitas</label>
                     <div class="col-sm-10">
                         <input id="no_identitas" type="text" class="form-control" name="no_identitas" required>
                     </div>
@@ -108,8 +108,8 @@
                         <select id="status_pernikahan" class="form-select" aria-label="Default select example"
                             name="status_pernikahan" required>
                             <option value="" disabled selected>~Pilih Status Pernikahan~</option>
-                            <option value="MENIKAH">MENIKAH</option>
-                            <option value="LAJANG">LAJANG</option>
+                            <option value="Menikah">Menikah</option>
+                            <option value="Lajang">Lajang</option>
                         </select>
                     </div>
                 </div>
