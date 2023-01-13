@@ -11,32 +11,57 @@
             <form action="{{ route('petugas.dokter.store') }}" method="POST">
                 @csrf
                 <div class="row mb-3">
-                    <label for="inputText" class="col-sm-2 col-form-label">Nama Dokter</label>
+                    <label for="nama_dokter" class="col-sm-2 col-form-label">Nama Dokter</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="nama_dokter">
+                        <input id="nama_dokter" type="text" class="form-control" name="nama_dokter" required>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="inputNumber" class="col-sm-2 col-form-label">No Indentitas</label>
+                    <label for="no_identitas" class="col-sm-2 col-form-label">No Indentitas</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="no_identitas">
+                        <input id="no_identitas" type="text" class="form-control" name="no_identitas" required>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label class="col-sm-2 col-form-label">Spesialis</label>
+                    <label for="spesialis" class="col-sm-2 col-form-label">Spesialis</label>
                     <div class="col-sm-10">
-                        <select class="form-select" aria-label="Default select example" name="spesialis">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                        <input type="text" id="spesialis" class="form-control" name="spesialis" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="hariMulai" class="col-sm-2 col-form-label">Hari Mulai</label>
+                    <div class="col-sm-10">
+                        <select id="hariMulai" class="form-select" aria-label="Default select example" name="hariMulai"
+                            required>
+                            <option value="" disabled selected>~Pilih Hari Mulai~</option>
+                            <option value="Senin">Senin</option>
+                            <option value="Selasa">Selasa</option>
+                            <option value="Rabu">Rabu</option>
+                            <option value="Kamis">Kamis</option>
+                            <option value="Juma'at">Juma'at</option>
+                            <option value="Sabtu">Sabtu</option>
                         </select>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="inputDate" class="col-sm-2 col-form-label">Tanggal</label>
+                    <label for="hariBerakhir" class="col-sm-2 col-form-label">Hari Berakhir</label>
                     <div class="col-sm-10">
-                        <input type="date" class="form-control" name="jadwal_dokter">
+                        <select id="hariBerakhir" class="form-select" aria-label="Default select example"
+                            name="hariBerakhir" required>
+                            <option value="" disabled selected>~Pilih Hari Berakhir~</option>
+                            <option value="Senin">Senin</option>
+                            <option value="Selasa">Selasa</option>
+                            <option value="Rabu">Rabu</option>
+                            <option value="Kamis">Kamis</option>
+                            <option value="Juma'at">Juma'at</option>
+                            <option value="Sabtu">Sabtu</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="jam" class="col-sm-2 col-form-label">Jam</label>
+                    <div class="col-sm-10">
+                        <input id="jam" type="text" class="form-control" name="jam" required>
                     </div>
                 </div>
                 {{-- <div class="row mb-3">
@@ -58,3 +83,23 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <script>
+        $(function() {
+            $('input[name="jam"]').daterangepicker({
+                timePicker: true,
+                timePicker24Hour: true,
+                timePickerIncrement: 1,
+                locale: {
+                    format: 'HH:mm'
+                }
+            }).on('show.daterangepicker', function(ev, picker) {
+                picker.container.find(".calendar-table").hide();
+            });
+        });
+    </script>
+@endpush

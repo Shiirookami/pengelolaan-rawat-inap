@@ -3,11 +3,11 @@
     Halaman Kelola Rujukan
 @endsection
 @section('content')
-    <<div class="card">
+    <div class="card">
         <div class="card-body">
             <h5 class="card-title">Kelola Rujukan</h5>
             <a href="{{ route('petugas.rujukan.create') }}" class="btn btn-primary mb-2">Tambah</a>
-            <button class="btn btn-primary">Print</button>
+            <a href="{{ route('petugas.rujukan.create') }}" class="btn btn-danger mb-2">Print</a>
             <!-- Table with hoverable rows -->
             <div class="table-responsive">
                 <table class="table table-hover" id="mytable">
@@ -27,30 +27,28 @@
                     </thead>
                     <tbody>
                         @foreach ($rujukans as $item => $rujukan)
-
-                        <tr>
-                            <th scope="row">{{$item+1}}</th>
-                            <td>{{$rujukan->tanggal}}</td>
-                            <td>{{$rujukan->nama_rumah_sakit}}</td>
-                            <td>{{$rujukan->pasien->nama_lengkap}}</td>
-                            <td>{{$rujukan->pasien->tanggal_lahir}}</td>
-                            <td>{{$rujukan->pasien->jenis_kelamin}}</td>
-                            <td>{{$rujukan->pasien->alamat}}</td>
-                            <td>{{$rujukan->diagnosis}}</td>
-                            <td>{{$rujukan->pertolongan_pertama}}</td>
-                            <td class="text-center">
-                                <form method="post"
-                                    action="{{ route('petugas.rujukan.destroy', $rujukan->id) }}">
-                                    <button type="button" class="btn btn-warning">
-                                        <a href="{{ route('petugas.rujukan.edit', $rujukan->id) }}">Edit</a>
-                                    </button>
-                                    @method('delete')
-                                    @csrf
-                                    <button type="submit" onclick="deleteConfirmation()"
-                                        class="btn btn-danger btn-sm">Delete</button>
-                                </form>
-                            </td>
-                        </tr>
+                            <tr>
+                                <th scope="row">{{ $item + 1 }}</th>
+                                <td>{{ $rujukan->tanggal }}</td>
+                                <td>{{ $rujukan->nama_rumah_sakit }}</td>
+                                <td>{{ $rujukan->pasien->nama_lengkap }}</td>
+                                <td>{{ $rujukan->pasien->tanggal_lahir }}</td>
+                                <td>{{ $rujukan->pasien->jenis_kelamin }}</td>
+                                <td>{{ $rujukan->pasien->alamat }}</td>
+                                <td>{{ $rujukan->diagnosis }}</td>
+                                <td>{{ $rujukan->pertolongan_pertama }}</td>
+                                <td class="text-center">
+                                    <form method="post" action="{{ route('petugas.rujukan.destroy', $rujukan->id) }}">
+                                        <button type="button" class="btn btn-warning">
+                                            <a href="{{ route('petugas.rujukan.edit', $rujukan->id) }}">Edit</a>
+                                        </button>
+                                        @method('delete')
+                                        @csrf
+                                        <button type="submit" onclick="deleteConfirmation()"
+                                            class="btn btn-danger btn-sm">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>
@@ -58,8 +56,8 @@
 
             </div>
         </div>
-        </div>
-    @endsection
+    </div>
+@endsection
 
-    @section('content')
-    @endsection
+@section('content')
+@endsection
