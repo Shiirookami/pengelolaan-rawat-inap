@@ -55,3 +55,4 @@ Route::group([
         Route::resource('/rujukan', RujukanController::class);
     });
 });
+
