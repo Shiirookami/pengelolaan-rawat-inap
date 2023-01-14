@@ -15,8 +15,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
     <!-- Custom File's Link -->
-    <link rel="stylesheet" href="./asset/css/style.css">
-    <link rel="stylesheet" href="./asset/css/responsive-style.css">
+    <link rel="stylesheet" href="{{asset('templateHome/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('templateHome/css/responsive-style.css')}}">
 
 </head>
 
@@ -27,7 +27,7 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container">
               <a class="navbar-brand" href="#">
-                  <img src="./asset/images/logo.png" class="img-fluid" >
+                  <img src="{{asset('templateHome/images/logo.png')}}" class="img-fluid" >
               </a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <!-- <span class="navbar-toggler-icon"></span> -->
@@ -59,6 +59,9 @@
                   <li class="nav-item mt-3 mt-lg-0">
                     <a class="nav-link" href="#contact">Contact</a>
                   </li>
+                  <li class="nav-item mt-3 mt-lg-0">
+                    <a class="nav-link" href="/login">Login</a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -83,10 +86,10 @@
                     <div class="col-md-6 order-md-2 order-1 mb-md-0 mb-5">
                         <div class="top-right-sec">
                             <div class="animate-img">
-                                <img class="aimg1" src="./asset/images/top-banner-img/woman-brush.png">
-                                <img class="aimg2" src="./asset/images/top-banner-img/doctor.png">
+                                <img class="aimg1" src="{{asset('templateHome/images/top-banner-img/woman-brush.png')}}">
+                                <img class="aimg2" src="{{asset('templateHome/images/top-banner-img/doctor.png')}}">
                             </div>
-                            <img class="img-fluid ms-xl-5" src="./asset/images/top-banner-img/top-right-img-1.png">
+                            <img class="img-fluid ms-xl-5" src="{{asset('templateHome/images/top-banner-img/top-right-img-1.png')}}">
                         </div>
                     </div>
                 </div>
@@ -98,7 +101,7 @@
                     <div class="col-md-4 col-sm-6 mb-4">
                         <div class="card text-center">
                             <div class="icon-box">
-                                <img src="./asset/images/top-banner-img/Appointment-icon.png">
+                                <img src="{{asset('templateHome/images/top-banner-img/Appointment-icon.png')}}">
                             </div>
                             <div>
                                 <h4>Easy Appointment</h4>
@@ -109,7 +112,7 @@
                     <div class="col-md-4 col-sm-6 mb-4">
                         <div class="card text-center">
                             <div class="icon-box">
-                                <img src="./asset/images/top-banner-img/Emergency-icon.png">
+                                <img src="{{asset('templateHome/images/top-banner-img/Emergency-icon.png')}}">
                             </div>
                             <div>
                                 <h4>Emergency Service</h4>
@@ -120,7 +123,7 @@
                     <div class="col-md-4 col-sm-6 mb-4">
                         <div class="card text-center">
                             <div class="icon-box">
-                                <img src="./asset/images/top-banner-img/7-Service-icon.png">
+                                <img src="{{asset('templateHome/images/top-banner-img/7-Service-icon.png')}}">
                             </div>
                             <div>
                                 <h4>24/7 Service</h4>
@@ -141,8 +144,8 @@
             <div class="row">
                 <div class="col-md-6 mb-mb-0 mb-5">
                     <div class="position-relative">
-                        <img src="./asset/images/about/about-banner1.png" class="img-fluid">
-                        <img src="./asset/images/about/about-img2.png" class="about-animate">
+                        <img src="{{asset('templateHome/images/about/about-banner1.png')}}" class="img-fluid">
+                        <img src="{{asset('templateHome/images/about/about-img2.png')}}" class="about-animate">
                     </div>
                 </div>
                 <div class="col-md-6 text-center text-md-start">
@@ -188,7 +191,7 @@
                 <div class="col-md-4 col-sm-6 mb-4">
                     <div class="card">
                         <div class="icon-box">
-                            <img src="./asset/images/services/1.svg">
+                            <img src="{{asset('templateHome/images/services/1.svg')}}">
                         </div>
                         <div>
                             <h4>Complete Dentistry</h4>
@@ -201,7 +204,7 @@
                 <div class="col-md-4 col-sm-6 mb-4">
                     <div class="card">
                         <div class="icon-box">
-                            <img src="./asset/images/services/2.svg">
+                            <img src="{{asset('templateHome/images/services/2.svg')}}">
                         </div>
                         <div>
                             <h4>Dental Selants</h4>
@@ -214,7 +217,7 @@
                 <div class="col-md-4 col-sm-6 mb-4">
                     <div class="card">
                         <div class="icon-box">
-                            <img src="./asset/images/services/3.svg">
+                            <img src="{{asset('templateHome/images/services/3.svg')}}">
                         </div>
                         <div>
                             <h4>Dental Dictionary</h4>
@@ -227,7 +230,7 @@
                 <div class="col-md-4 col-sm-6 mb-4">
                     <div class="card">
                         <div class="icon-box">
-                            <img src="./asset/images/services/4.svg">
+                            <img src="{{asset('templateHome/images/services/4.svg')}}">
                         </div>
                         <div>
                             <h4>Dental Implants</h4>
@@ -240,7 +243,7 @@
                 <div class="col-md-4 col-sm-6 mb-4">
                     <div class="card">
                         <div class="icon-box">
-                            <img src="./asset/images/services/5.svg">
+                            <img src="{{asset('templateHome/images/services/5.svg')}}">
                         </div>
                         <div>
                             <h4>Oral Surgery</h4>
@@ -253,7 +256,7 @@
                 <div class="col-md-4 col-sm-6 mb-4">
                     <div class="card">
                         <div class="icon-box">
-                            <img src="./asset/images/services/6.svg">
+                            <img src="{{asset('templateHome/images/services/6.svg')}}">
                         </div>
                         <div>
                             <h4>General Dentistry</h4>
@@ -281,7 +284,7 @@
                 <div class="col-md-4 col-sm-6 mb-4">
                     <div class="card rounded-3">
                         <div class="team-img">
-                            <img src="./asset/images/team/team1.png" class="img-fluid">
+                            <img src="{{asset('templateHome/images/team/team1.png')}}" class="img-fluid">
                         </div>
                         <div class="team-info pt-4 text-center">
                             <h5>Ferry Aditya Herman</h5>
@@ -299,7 +302,7 @@
                 <div class="col-md-4 col-sm-6 mb-4">
                     <div class="card rounded-3">
                         <div class="team-img">
-                            <img src="./asset/images/team/team2.png" class="img-fluid">
+                            <img src="{{asset('templateHome/images/team/team2.png')}}" class="img-fluid">
                         </div>
                         <div class="team-info pt-4 text-center">
                             <h5>Salman Ahmed</h5>
@@ -317,7 +320,7 @@
                 <div class="col-md-4 col-sm-6 mb-4">
                     <div class="card rounded-3">
                         <div class="team-img">
-                            <img src="./asset/images/team/team3.png" class="img-fluid">
+                            <img src="{{asset('templateHome/images/team/team3.')}}png" class="img-fluid">
                         </div>
                         <div class="team-info pt-4 text-center">
                             <h5>Santa Binte</h5>
@@ -348,19 +351,19 @@
             </div>
             <div class="row">
                 <div class="col-md-4 col-sm-6 mb-4">
-                    <img src="./asset/images/gallery/1.jpg" class="w-100 h-100">
+                    <img src="{{asset('templateHome/images/gallery/1.jpg')}}" class="w-100 h-100">
                 </div>
                 <div class="col-md-4 col-sm-6 mb-4">
-                    <img src="./asset/images/gallery/2.jpg" class="w-100 h-100">
+                    <img src="{{asset('templateHome/images/gallery/2.jpg')}}" class="w-100 h-100">
                 </div>
                 <div class="col-md-4 col-sm-6 mb-4">
-                    <img src="./asset/images/gallery/3.jpg" class="w-100 h-100">
+                    <img src="{{asset('templateHome/images/gallery/3.jpg')}}" class="w-100 h-100">
                 </div>
                 <div class="col-md-4 col-sm-6 mb-4">
-                    <img src="./asset/images/gallery/5.jpg" class="w-100 h-100">
+                    <img src="{{asset('templateHome/images/gallery/4.jpg')}}" class="w-100 h-100">
                 </div>
                 <div class="col-md-8 col-sm-6 mb-4">
-                    <img src="./asset/images/gallery/4.jpg" class="w-100 h-100">
+                    <img src="{{asset('templateHome/images/gallery/5.jpg')}}" class="w-100 h-100">
                 </div>
             </div>
         </div>
@@ -379,7 +382,7 @@
             <div class="row align-items-center">
                 <div class="col-xl-3 col-md-4 col-sm-6">
                     <div class="card text-center">
-                        <img src="./asset/images/testimonial/client1.png" class="img-fluid">
+                        <img src="{{asset('templateHome/images/testimonial/client1.png')}}" class="img-fluid">
                         <h4 class="pt-4 mb-0">Aliceano Colby</h4>
                         <p>CEO of Prime IT</p> 
                     </div>
@@ -420,7 +423,7 @@
             <div class="row">
                 <div class="col-md-4 col-sm-6 mb-4">
                     <div class="card p-0 border-0 rounded-0">
-                        <img src="./asset/images/blog/1.jpg">
+                        <img src="{{asset('templateHome/images/blog/1.jpg')}}">
                         <div class="blog-content">
                             <h5 class="text-white mb-4">Dental Insurance with Benefits</h5>
                             <h6 class="text-white">By Admin - February 18, 2018</h6>
@@ -434,7 +437,7 @@
                 </div>
                 <div class="col-md-4 col-sm-6 mb-4">
                     <div class="card p-0 border-0 rounded-0">
-                        <img src="./asset/images/blog/2.jpg">
+                        <img src="{{asset('templateHome/images/blog/2.jpg')}}">
                         <div class="blog-content">
                             <h5 class="text-white mb-4">Dental Insurance with Benefits</h5>
                             <h6 class="text-white">By Admin - February 18, 2018</h6>
@@ -448,7 +451,7 @@
                 </div>
                 <div class="col-md-4 col-sm-6 mb-4">
                     <div class="card p-0 border-0 rounded-0">
-                        <img src="./asset/images/blog/3.jpg">
+                        <img src="{{asset('templateHome/images/blog/3.jpg')}}">
                         <div class="blog-content">
                             <h5 class="text-white mb-4">Dental Insurance with Benefits</h5>
                             <h6 class="text-white">By Admin - February 18, 2018</h6>
