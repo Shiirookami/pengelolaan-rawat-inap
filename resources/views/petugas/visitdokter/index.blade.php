@@ -33,14 +33,14 @@
                             <td>{{ $visit_dokter->penyakit }}</td>
                             <td>{{ $visit_dokter->obat }}</td>
                             <td>{{ $visit_dokter->perkembangan }}</td>
-                            <td>{{ $visit_dokter->dokter->nama_dokter }}</td>
+                            <td>{{ $visit_dokter->nama_dokter }}</td>
                             {{-- <td>{{$visit_dokter->dokter->no_identitas}}</td> --}}
-                            <td>{{ $visit_dokter->pasien->nama_lengkap }}</td>
+                            <td>{{ $visit_dokter->nama_lengkap }}</td>
                             {{-- <td>{{$visit_dokter->pasien->no_identitas}}</td> --}}
-                            <td>{{ $visit_dokter->pasien->jenis_kelamin }}</td>
+                            <td>{{ $visit_dokter->jenis_kelamin }}</td>
                             <td class="text-center">
                                 <a class="btn btn-warning btn-sm"
-                                    href="{{ route('petugas.visitdokter.edit', $visit_dokter->id) }}">Edit</a>
+                                    href="{{ route('petugas.visitdokter.edit', $visit_dokter->id_pasien_rawat_inap) }}">Edit</a>
                                 {{-- <form method="post"
                                     action="{{ route('petugas.visitdokter.destroy', $visit_dokter->id) }}">
                                     <button type="button" class="btn btn-warning">

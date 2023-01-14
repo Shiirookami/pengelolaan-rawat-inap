@@ -8,7 +8,7 @@
             <h5 class="card-title">Tambah Visit Dokter</h5>
             <a href="{{ url()->previous() }}" class="btn btn-facebook">kembali</a>
             <!-- General Form Elements -->
-            <form action="{{ route('petugas.visitdokter.update', $item->id) }}" method="POST">
+            <form action="{{ route('petugas.visitdokter.update', $item->id_pasien_rawat_inap) }}" method="POST">
                 @csrf
                 @method('put')
                 {{-- <div class="row mb-3">
@@ -65,8 +65,8 @@
                 <div class="row mb-3">
                     {{-- <label class="col-sm-10 col-form-label"></label> --}}
                     <div class="col-sm-2 offset-2"><br>
-                        <button type="submit" class="btn btn-primary">Submits</button>
-                        <button type="submit" class="btn btn-primary">rujuk</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Rujuk</button>
                     </div>
                 </div>
             </form><!-- End General Form Elements -->

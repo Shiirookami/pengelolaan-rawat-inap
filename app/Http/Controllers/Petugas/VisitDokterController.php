@@ -9,13 +9,25 @@ use App\Models\Dokter;
 use App\Models\PasienRawatInap;
 use Illuminate\Http\Request;
 use App\Models\VisitDokter;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class VisitDokterController extends Controller
 {
     public function index()
     {
-        $data['items'] = VisitDokter::orderByDesc('created_at')->distinct('id_pasien_rawat_inap')->get();
+        // $data['items'] = VisitDokter::orderByDesc('created_at')->distinct('id_pasien_rawat_inap')->get();
+        
+        // $sub = VisitDokter::orderBy('created_at','DESC')->toSql();
+        // dd($sub);
+
+        // $data['items'] = VisitDokter::orderBy('created_at', 'desc')->groupBy('id_pasien_rawat_inap', )->get();
+        // dd($data['items']);
+        $data['items'] = DB::select("SELECT * FROM (SELECT * FROM visit_dokters GROUP BY id_pasien_rawat_inap DESC) AS vd 
+        INNER JOIN dokters as d ON d.id = vd.id_dokter 
+        LEFT JOIN pasien_rawat_inaps as pri ON pri.id = vd.id_pasien_rawat_inap 
+        ");
+
         return view('petugas.visitdokter.index')->with($data);
     }
 
@@ -35,18 +47,21 @@ class VisitDokterController extends Controller
         return redirect()->route('petugas.visitdokter.index');
     }
 
-    public function edit($id)
+    public function edit($pasien)
     {
         //Cari berdasarkan id rawat inap atau cek kondisi apakah id merupakan urutan paling bawah
-        $data['item'] = VisitDokter::findOrFail($id);
+        $data['item'] = VisitDokter::where('id_pasien_rawat_inap', $pasien)->get()->last();
         return view('petugas.visitdokter.edit')->with($data);
     }
 
-    public function update(VisitDokterUpdateRequest $request, $id)
+    public function update(VisitDokterUpdateRequest $request, $pasien)
     {
         $data = $request->all();
-        $item = VisitDokter::findOrFail($id);
-        $item->update($data);
+        $item = VisitDokter::where('id_pasien_rawat_inap', $pasien)->first();
+        $data['id_dokter'] = $item->id_dokter;
+        $data['id_pasien_rawat_inap'] = $item->id_pasien_rawat_inap;
+        VisitDokter::create($data);
+        // $item->update($data);
         Session::flash('status', 'Data Berhasil Diubah');
         return redirect()->route('petugas.visitdokter.index');
     }
