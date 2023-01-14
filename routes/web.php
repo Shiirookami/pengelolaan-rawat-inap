@@ -27,7 +27,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group([
     'middleware' => 'auth'
@@ -54,4 +54,8 @@ Route::group([
         Route::resource('/visitdokter', VisitDokterController::class);
         Route::resource('/rujukan', RujukanController::class);
     });
+});
+
+Route::get('/', function () {
+    return view('Home_welcome');
 });
