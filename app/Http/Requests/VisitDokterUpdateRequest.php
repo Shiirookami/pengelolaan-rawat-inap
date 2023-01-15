@@ -24,7 +24,7 @@ class VisitDokterUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'tensi_darah' => ['required'],
+            'tensi_darah' => ['required', 'numeric'],
             'penyakit' => ['required'],
             'obat' => ['required'],
             'perkembangan' => ['required'],
