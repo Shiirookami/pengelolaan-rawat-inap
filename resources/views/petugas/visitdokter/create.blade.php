@@ -5,8 +5,10 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Tambah Visit Dokter</h5>
-            <a href="{{ url()->previous() }}" class="btn btn-facebook">Kembali</a>
+            <div class="clearfix mb-3">
+                <h5 class="card-title d-inline">Tambah Visit Dokter</h5>
+                <a href="{{ url()->previous() }}" class="btn btn-facebook float-right">Kembali</a>
+            </div>
             <!-- General Form Elements -->
             <form action="{{ route('petugas.visitdokter.store') }}" method="POST">
                 @csrf

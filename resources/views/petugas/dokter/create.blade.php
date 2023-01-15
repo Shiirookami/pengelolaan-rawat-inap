@@ -5,8 +5,10 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Tambah Dokter</h5>
-            <a href="{{ url()->previous() }}" class="btn btn-facebook">Kembali</a>
+            <div class="clearfix mb-3">
+                <h5 class="card-title d-inline">Tambah Dokter</h5>
+                <a href="{{ url()->previous() }}" class="btn btn-facebook float-right">Kembali</a>
+            </div>
             <!-- General Form Elements -->
             <form action="{{ route('petugas.dokter.store') }}" method="POST">
                 @csrf
@@ -31,8 +33,7 @@
                 <div class="row mb-3">
                     <label for="hari_mulai" class="col-sm-2 col-form-label">Hari Mulai</label>
                     <div class="col-sm-10">
-                        <select id="hari_mulai" class="form-select" aria-label="Default select example" name="hari_mulai"
-                            required>
+                        <select id="hari_mulai" class="form-control" name="hari_mulai" required>
                             <option value="" disabled selected>~Pilih Hari Mulai~</option>
                             <option value="Senin">Senin</option>
                             <option value="Selasa">Selasa</option>
@@ -46,8 +47,7 @@
                 <div class="row mb-3">
                     <label for="hari_berakhir" class="col-sm-2 col-form-label">Hari Berakhir</label>
                     <div class="col-sm-10">
-                        <select id="hari_berakhir" class="form-select" aria-label="Default select example"
-                            name="hari_berakhir" required>
+                        <select id="hari_berakhir" class="form-control" name="hari_berakhir" required>
                             <option value="" disabled selected>~Pilih Hari Berakhir~</option>
                             <option value="Senin">Senin</option>
                             <option value="Selasa">Selasa</option>
@@ -64,17 +64,11 @@
                         <input id="jam" type="text" class="form-control" name="jam" required>
                     </div>
                 </div>
-                {{-- <div class="row mb-3">
-          <label for="inputTime" class="col-sm-2 col-form-label">Time</label>
-          <div class="col-sm-10">
-            <input type="time" class="form-control" name="jadwal_dokter">
-          </div>
-        </div> --}}
 
                 <div class="row mb-3">
                     {{-- <label class="col-sm-10 col-form-label"></label> --}}
                     <div class="col-sm-2 offset-2"><br>
-                        <button type="submit" class="btn btn-primary">Submit Form</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </div>
 

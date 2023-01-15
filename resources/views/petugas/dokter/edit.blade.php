@@ -12,8 +12,10 @@
     @endphp
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Edit Dokter</h5>
-            <a href="{{ url()->previous() }}" class="btn btn-facebook">Kembali</a>
+            <div class="clearfix mb-3">
+                <h5 class="card-title d-inline">Edit Dokter</h5>
+                <a href="{{ url()->previous() }}" class="btn btn-facebook float-right">Kembali</a>
+            </div>
             <!-- General Form Elements -->
             <form action="{{ route('petugas.dokter.update', $item->id) }}" method="POST">
                 @csrf
@@ -42,7 +44,7 @@
                 <div class="row mb-3">
                     <label for="hariMulai" class="col-sm-2 col-form-label">Hari Mulai</label>
                     <div class="col-sm-10">
-                        <select class="form-select" aria-label="Default select example" name="hariMulai" required>
+                        <select class="form-control" name="hariMulai" required>
                             <option value="Senin" {{ $hari_mulai == 'Senin' ? 'selected' : '' }}>Senin</option>
                             <option value="Selasa" {{ $hari_mulai == 'Selasa' ? 'selected' : '' }}>Selasa</option>
                             <option value="Rabu" {{ $hari_mulai == 'Rabu' ? 'selected' : '' }}>Rabu</option>
@@ -55,7 +57,7 @@
                 <div class="row mb-3">
                     <label for="hariBerakhir" class="col-sm-2 col-form-label">Hari Berakhir</label>
                     <div class="col-sm-10">
-                        <select class="form-select" aria-label="Default select example" name="hariBerakhir" required>
+                        <select class="form-control" name="hariBerakhir" required>
                             <option value="Senin" {{ $hari_berakhir == 'Senin' ? 'selected' : '' }}>Senin</option>
                             <option value="Selasa" {{ $hari_berakhir == 'Selasa' ? 'selected' : '' }}>Selasa</option>
                             <option value="Rabu" {{ $hari_berakhir == 'Rabu' ? 'selected' : '' }}>Rabu</option>
@@ -81,7 +83,7 @@
                 <div class="row mb-3">
                     {{-- <label class="col-sm-10 col-form-label"></label> --}}
                     <div class="col-sm-2 offset-2"><br>
-                        <button type="submit" class="btn btn-primary">Submit Form</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </div>
 

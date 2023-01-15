@@ -5,8 +5,10 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Tambah Kamar</h5>
-            <a href="{{ url()->previous() }}" class="btn btn-facebook">Kembali</a>
+            <div class="clearfix mb-3">
+                <h5 class="card-title d-inline">Tambah Kamar</h5>
+                <a href="{{ url()->previous() }}" class="btn btn-facebook float-right">Kembali</a>
+            </div>
             <!-- General Form Elements -->
             <form action="{{ route('petugas.kamar.store') }}" method="POST">
                 @csrf
@@ -19,8 +21,7 @@
                 <div class="row mb-3">
                     <label for="kelas" class="col-sm-2 col-form-label">Kelas</label>
                     <div class="col-sm-10">
-                        <select class="form-select" aria-label="Default select example"name="kelas"id="kelas"
-                            required>
+                        <select class="form-control" name="kelas" id="kelas" required>
                             <option value="" disabled selected>~Pilih Kamar~</option>
                             <option value="1">VIP</option>
                             <option value="2">EKOMOMI</option>
@@ -36,7 +37,7 @@
                 <div class="row mb-3">
                     {{-- <label class="col-sm-10 col-form-label"></label> --}}
                     <div class="col-sm-2 offset-2"><br>
-                        <button type="submit" class="btn btn-primary">Submit Form</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </div>
 

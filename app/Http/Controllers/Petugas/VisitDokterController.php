@@ -51,6 +51,7 @@ class VisitDokterController extends Controller
     {
         //Cari berdasarkan id rawat inap atau cek kondisi apakah id merupakan urutan paling bawah
         $data['item'] = VisitDokter::where('id_pasien_rawat_inap', $pasien)->get()->last();
+        $data['visit_dokters'] = VisitDokter::where('id_pasien_rawat_inap', $pasien)->get();
         return view('petugas.visitdokter.edit')->with($data);
     }
 

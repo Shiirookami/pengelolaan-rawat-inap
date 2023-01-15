@@ -5,8 +5,10 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Tambah Pasien Rawat Inap</h5>
-            <a href="{{ url()->previous() }}" class="btn btn-facebook">Kembali</a>
+            <div class="clearfix mb-3">
+                <h5 class="card-title d-inline">Tambah Pasien Rawat Inap</h5>
+                <a href="{{ url()->previous() }}" class="btn btn-facebook float-right">Kembali</a>
+            </div>
             <!-- General Form Elements -->
             <form action="{{ route('petugas.pasienrawatinap.store') }}" method="POST">
                 @csrf
@@ -43,8 +45,7 @@
                 <div class="row mb-3">
                     <label for="jenis_kelamin" class="col-sm-2 col-form-label">Jenis Kelamin</label>
                     <div class="col-sm-10">
-                        <select id="jenis_kelamin" class="form-select" aria-label="Default select example"
-                            name="jenis_kelamin" required>
+                        <select id="jenis_kelamin" class="form-control" name="jenis_kelamin" required>
                             <option value="" disabled selected>~Pilih Jenis Kelamin~</option>
                             <option value="Laki-laki">Laki-laki</option>
                             <option value="Perempuan">Perempuan</option>
@@ -60,8 +61,7 @@
                 <div class="row mb-3">
                     <label for="golongan_darah" class="col-sm-2 col-form-label">Gol Darah</label>
                     <div class="col-sm-10">
-                        <select id="golongan_darah" class="form-select" aria-label="Default select example"
-                            name="golongan_darah" required>
+                        <select id="golongan_darah" class="form-control" name="golongan_darah" required>
                             <option value="" disabled selected>~Pilih Golongan Darah~</option>
                             <option value="A">A</option>
                             <option value="B">B</option>
@@ -79,8 +79,7 @@
                 <div class="row mb-3">
                     <label for="warga_negara" class="col-sm-2 col-form-label">Warga Negara</label>
                     <div class="col-sm-10">
-                        <select id="warga_negara" class="form-select" aria-label="Default select example"
-                            name="warga_negara" required>
+                        <select id="warga_negara" class="form-control" name="warga_negara" required>
                             <option value="" disabled selected>~Pilih Warga Negara~</option>
                             <option value="WNI">WNI</option>
                             <option value="WNA">WNA</option>
@@ -90,8 +89,7 @@
                 <div class="row mb-3">
                     <label for="agama" class="col-sm-2 col-form-label">Agama</label>
                     <div class="col-sm-10">
-                        <select id="agama" class="form-select" aria-label="Default select example" name="agama"
-                            required>
+                        <select id="agama" class="form-control" name="agama" required>
                             <option value="" disabled selected>~Pilih Agama~</option>
                             <option value="ISLAM">ISLAM</option>
                             <option value="BUDHA">BUDHA</option>
@@ -105,8 +103,7 @@
                 <div class="row mb-3">
                     <label for="status_pernikahan" class="col-sm-2 col-form-label">Status Pernikahan</label>
                     <div class="col-sm-10">
-                        <select id="status_pernikahan" class="form-select" aria-label="Default select example"
-                            name="status_pernikahan" required>
+                        <select id="status_pernikahan" class="form-control" name="status_pernikahan" required>
                             <option value="" disabled selected>~Pilih Status Pernikahan~</option>
                             <option value="Menikah">Menikah</option>
                             <option value="Lajang">Lajang</option>
@@ -139,8 +136,7 @@
                 <div class="row mb-3">
                     <label for="status_asuransi" class="col-sm-2 col-form-label">Status Asuransi</label>
                     <div class="col-sm-10">
-                        <select id="status_asuransi" class="form-select" aria-label="Default select example"
-                            name="status_asuransi" required>
+                        <select id="status_asuransi" class="form-control" name="status_asuransi" required>
                             <option value="" disabled selected>~Pilih Status Asurnasi~</option>
                             <option value="BPJS">BPJS</option>
                             <option value="UMUM">UMUM</option>
@@ -161,7 +157,7 @@
                 <div class="row mb-3">
                     {{-- <label class="col-sm-10 col-form-label"></label> --}}
                     <div class="col-sm-2 offset-2"><br>
-                        <button type="submit" class="btn btn-primary">Submit Form</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </div>
 

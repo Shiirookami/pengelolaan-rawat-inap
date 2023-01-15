@@ -5,8 +5,10 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Edit Pasien Rawat Inap</h5>
-            <a href="{{ url()->previous() }}" class="btn btn-facebook">Kembali</a>
+            <div class="clearfix mb-3">
+                <h5 class="card-title d-inline">Edit Pasien Rawat Inap</h5>
+                <a href="{{ url()->previous() }}" class="btn btn-facebook float-right">Kembali</a>
+            </div>
             <!-- General Form Elements -->
             <form action="{{ route('petugas.pasienrawatinap.update', $item->id) }}" method="POST">
                 @csrf
@@ -49,8 +51,8 @@
                 <div class="row mb-3">
                     <label for="jenis_kelamin" class="col-sm-2 col-form-label">Jenis Kelamin</label>
                     <div class="col-sm-10">
-                        <select id="jenis_kelamin" class="form-select" aria-label="Default select example"
-                            name="jenis_kelamin" value="{{ $item->jenis_kelamin }}" required>
+                        <select id="jenis_kelamin" class="form-control" name="jenis_kelamin"
+                            value="{{ $item->jenis_kelamin }}" required>
                             <option value="Laki-laki" {{ $item->jenis_kelamin == 'Laki-laki' ? 'selected' : '' }}>Laki-laki
                             </option>
                             <option value="Perempuan" {{ $item->jenis_kelamin == 'Perempuan' ? 'selected' : '' }}>Perempuan
@@ -68,8 +70,8 @@
                 <div class="row mb-3">
                     <label for="golongan_darah" class="col-sm-2 col-form-label">Gol Darah</label>
                     <div class="col-sm-10">
-                        <select id="golongan_darah" class="form-select" aria-label="Default select example"
-                            name="golongan_darah" value="{{ $item->golongan_darah }}" required>
+                        <select id="golongan_darah" class="form-control" name="golongan_darah"
+                            value="{{ $item->golongan_darah }}" required>
                             <option value="A" {{ $item->golongan_darah == 'A' ? 'selected' : '' }}>A</option>
                             <option value="B" {{ $item->golongan_darah == 'A' ? 'selected' : '' }}>B</option>
                             <option value="AB" {{ $item->golongan_darah == 'A' ? 'selected' : '' }}>AB</option>
@@ -87,8 +89,8 @@
                 <div class="row mb-3">
                     <label for="warga_negara" class="col-sm-2 col-form-label">Warga Negara</label>
                     <div class="col-sm-10">
-                        <select id="warga_negara" class="form-select" aria-label="Default select example"
-                            name="warga_negara" value="{{ $item->warga_negara }}" required>
+                        <select id="warga_negara" class="form-control" name="warga_negara"
+                            value="{{ $item->warga_negara }}" required>
                             <option value="{{ $item->warga_negara }}">{{ $item->warga_negara }}</option>
                             <option value="WNI" {{ $item->warga_negara == 'WNI' ? 'selected' : '' }}>WNI</option>
                             <option value="WNA" {{ $item->warga_negara == 'WNA' ? 'selected' : '' }}>WNA</option>
@@ -99,8 +101,8 @@
                 <div class="row mb-3">
                     <label for="agama" class="col-sm-2 col-form-label">Agama</label>
                     <div class="col-sm-10">
-                        <select id="agama" class="form-select" aria-label="Default select example" name="agama"
-                            value="{{ $item->agama }}" required>
+                        <select id="agama" class="form-control" name="agama" value="{{ $item->agama }}"
+                            required>
                             <option value="ISLAM" {{ $item->agama == 'ISLAM' ? 'selected' : '' }}>ISLAM</option>
                             <option value="BUDHA" {{ $item->agama == 'BUDHA' ? 'selected' : '' }}>BUDHA</option>
                             <option value="KRISTEN" {{ $item->agama == 'KRISTEN' ? 'selected' : '' }}>KRISTEN</option>
@@ -114,8 +116,8 @@
                 <div class="row mb-3">
                     <label for="status_pernikahan" class="col-sm-2 col-form-label">Status Pernikahan</label>
                     <div class="col-sm-10">
-                        <select id="status_pernikahan" class="form-select" aria-label="Default select example"
-                            name="status_pernikahan" value="{{ $item->status_pernikahan }}" required>
+                        <select id="status_pernikahan" class="form-control" name="status_pernikahan"
+                            value="{{ $item->status_pernikahan }}" required>
                             <option value="Menikah" {{ $item->status_pernikahan == 'Menikah' ? 'selected' : '' }}>Menikah
                             </option>
                             <option value="Lajang" {{ $item->status_pernikahan == 'Lajang' ? 'selected' : '' }}>Lajang
@@ -151,8 +153,8 @@
                 <div class="row mb-3">
                     <label for="status_asuransi" class="col-sm-2 col-form-label">Asuransi</label>
                     <div class="col-sm-10">
-                        <select id="status_asuransi" class="form-select" aria-label="Default select example"
-                            name="status_asuransi" value="{{ $item->status_asuransi }}" required>
+                        <select id="status_asuransi" class="form-control" name="status_asuransi"
+                            value="{{ $item->status_asuransi }}" required>
                             <option value="BPJS" {{ $item->status_asuransi == 'BPJS' ? 'selected' : '' }}>BPJS</option>
                             <option value="UMUM" {{ $item->status_asuransi == 'UMUM' ? 'selected' : '' }}>UMUM</option>
                         </select>
@@ -173,7 +175,7 @@
                 <div class="row mb-3">
                     {{-- <label class="col-sm-10 col-form-label"></label> --}}
                     <div class="col-sm-2 offset-2"><br>
-                        <button type="submit" class="btn btn-primary">Submit Form</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </div>
 

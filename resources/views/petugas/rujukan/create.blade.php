@@ -1,12 +1,14 @@
 @extends('layouts.dashboard_master')
 @section('title')
-    Halaman Rujukan
+    Halaman Tambah Rujukan
 @endsection
 @section('content')
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Tambah Rujukan</h5>
-            <a href="{{ url()->previous() }}" class="btn btn-facebook">Kembali</a>
+            <div class="clearfix mb-3">
+                <h5 class="card-title d-inline">Tambah Rujukan</h5>
+                <a href="{{ url()->previous() }}" class="btn btn-facebook float-right">Kembali</a>
+            </div>
             <!-- General Form Elements -->
             <form action="{{ route('petugas.rujukan.store') }}" method="POST">
                 @csrf
@@ -37,7 +39,7 @@
                     <div class="row mb-3">
                         <label for="id_pasien" class="col-sm-2 col-form-label">Nama Pasien</label>
                         <div class="col-sm-10">
-                            <select class="form-select" name="id_pasien" id="id_pasien" required>
+                            <select class="form-control" name="id_pasien" id="id_pasien" required>
                                 <option value="" disabled selected>~Pilih Nama Pasien~</option>
                                 @foreach ($pasiens as $item)
                                     <option value="{{ $item->id }}">{{ $item->nama_lengkap }}</option>
