@@ -68,7 +68,7 @@
                 <div class="row mb-3">
                     {{-- <label class="col-sm-10 col-form-label"></label> --}}
                     <div class="col-sm-2 offset-2"><br>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-success">Submit</button>
                     </div>
                 </div>
 
