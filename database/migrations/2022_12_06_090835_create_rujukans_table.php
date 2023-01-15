@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('nama_rumah_sakit');
             $table->string('diagnosis');
             $table->string('pertolongan_pertama');
-            $table->unsignedBigInteger('id_pasien');
-            $table->foreign('id_pasien')->references('id')->on('pasien_rawat_inaps')
+            $table->unsignedBigInteger('id_pasien_rawat_inap');
+            $table->foreign('id_pasien_rawat_inap')->references('id')->on('pasien_rawat_inaps')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->softDeletes();

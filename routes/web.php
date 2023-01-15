@@ -54,6 +54,9 @@ Route::group([
         Route::resource('/dokter', DokterController::class);
         Route::resource('/pasienrawatinap', PasienRawatInapController::class);
         Route::resource('/visitdokter', VisitDokterController::class);
-        Route::resource('/rujukan', RujukanController::class);
+
+        Route::get('/rujukan', [RujukanController::class, 'index'])->name('rujukan.index');
+        Route::get('/rujukan/create/{id?}', [RujukanController::class, 'create'])->name('rujukan.create');
+        Route::post('/rujukan/store/', [RujukanController::class, 'store'])->name('rujukan.store');
     });
 });

@@ -10,12 +10,12 @@ class Rujukan extends Model
     use SoftDeletes;
     protected $fillable = [
         'tanggal', 'nama_rumah_sakit', 'diagnosis', 'pertolongan_pertama',
-        'id_pasien'
+        'id_pasien_rawat_inap'
     ];
     protected $hidden = [];
 
     public function pasien()
     {
-        return $this->belongsTo(PasienRawatInap::class, 'id_pasien', 'id');
+        return $this->belongsTo(PasienRawatInap::class, 'id_pasien_rawat_inap', 'id');
     }
 }

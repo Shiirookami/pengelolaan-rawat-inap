@@ -28,7 +28,7 @@ class RujukanRequest extends FormRequest
             'nama_rumah_sakit' => ['required'],
             'diagnosis' => ['required'],
             'pertolongan_pertama' => ['required'],
-            'id_pasien' => ['required', 'exists:pasien_rawat_inaps,id'],
+            'id_pasien_rawat_inap' => ['required', 'exists:pasien_rawat_inaps,id'],
         ];
     }
 }

@@ -85,7 +85,8 @@
                     {{-- <label class="col-sm-10 col-form-label"></label> --}}
                     <div class="col-sm-2 offset-2"><br>
                         <button type="submit" class="btn btn-success">Submit</button>
-                        <button type="submit" class="btn btn-primary">Rujuk</button>
+                        <a href="{{ route('petugas.rujukan.create', $item->id_pasien_rawat_inap) }}"
+                            class="btn btn-danger">Rujuk</a>
                     </div>
                 </div>
             </form><!-- End General Form Elements -->

@@ -87,7 +87,15 @@
             Swal.fire({
                 title: 'Congratulations!',
                 text: "{{ session('status') }}",
-                icon: 'Success',
+                icon: 'success',
+                timer: 3000
+            })
+        @endif
+        @if (session('error'))
+            Swal.fire({
+                title: 'Warning!',
+                text: "{{ session('status') }}",
+                icon: 'error',
                 timer: 3000
             })
         @endif
