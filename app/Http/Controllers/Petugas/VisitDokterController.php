@@ -7,6 +7,7 @@ use App\Http\Requests\VisitDokterStoreRequest;
 use App\Http\Requests\VisitDokterUpdateRequest;
 use App\Models\Dokter;
 use App\Models\PasienRawatInap;
+use App\Models\Rujukan;
 use Illuminate\Http\Request;
 use App\Models\VisitDokter;
 use Illuminate\Support\Facades\DB;
@@ -17,16 +18,33 @@ class VisitDokterController extends Controller
     public function index()
     {
         // $data['items'] = VisitDokter::orderByDesc('created_at')->distinct('id_pasien_rawat_inap')->get();
-        
         // $sub = VisitDokter::orderBy('created_at','DESC')->toSql();
         // dd($sub);
-
         // $data['items'] = VisitDokter::orderBy('created_at', 'desc')->groupBy('id_pasien_rawat_inap', )->get();
         // dd($data['items']);
-        $data['items'] = DB::select("SELECT * FROM (SELECT * FROM visit_dokters GROUP BY id_pasien_rawat_inap DESC) AS vd 
-        INNER JOIN dokters as d ON d.id = vd.id_dokter 
-        LEFT JOIN pasien_rawat_inaps as pri ON pri.id = vd.id_pasien_rawat_inap 
-        ");
+        
+        $rujukans = Rujukan::pluck('id_pasien_rawat_inap')->all();
+        $id_pasien = null;
+        foreach ($rujukans as $key => $rujukan) {
+            if($key+1 === count($rujukans)) {
+                $id_pasien .= $rujukan;
+            } else {
+                $id_pasien .= $rujukan . ','; 
+            }
+        }
+
+        if($id_pasien)
+        {
+            $data['items'] = DB::select("SELECT * FROM (SELECT * FROM visit_dokters GROUP BY id_pasien_rawat_inap DESC) AS vd 
+            INNER JOIN dokters as d ON d.id = vd.id_dokter 
+            LEFT JOIN pasien_rawat_inaps as pri ON pri.id = vd.id_pasien_rawat_inap WHERE vd.id_pasien_rawat_inap NOT IN ($id_pasien)
+            ");
+        } else {
+            $data['items'] = DB::select("SELECT * FROM (SELECT * FROM visit_dokters GROUP BY id_pasien_rawat_inap DESC) AS vd 
+            INNER JOIN dokters as d ON d.id = vd.id_dokter 
+            LEFT JOIN pasien_rawat_inaps as pri ON pri.id = vd.id_pasien_rawat_inap");
+        }
+        
 
         return view('petugas.visitdokter.index')->with($data);
     }
