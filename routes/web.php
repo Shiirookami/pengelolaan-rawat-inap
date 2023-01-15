@@ -53,6 +53,8 @@ Route::group([
         Route::resource('/kamar', KamarController::class);
         Route::resource('/dokter', DokterController::class);
         Route::get('/pasienrawatinap/getPasien', [PasienRawatInapController::class, 'getPasien'])->name('pasienrawatinap.getPasien');
+        Route::get('/pasienrawatinap/export', [PasienRawatInapController::class, 'export_pasien'])->name('pasienrawatinap.export');
+        Route::post('/pasienrawatinap/import', [PasienRawatInapController::class, 'import_pasien'])->name('pasienrawatinap.import');
         Route::resource('/pasienrawatinap', PasienRawatInapController::class);
         Route::resource('/visitdokter', VisitDokterController::class);
 

@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers\Petugas;
 
+use App\Exports\PasienExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PasienRawatInapRequest;
+use App\Imports\PasienImport;
 use App\Models\Kamar;
 use App\Models\PasienRawatInap;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Excel;
+use Validator;
 
 class PasienRawatInapController extends Controller
 {
@@ -68,5 +72,31 @@ class PasienRawatInapController extends Controller
         ]);
         $pasien = PasienRawatInap::with('kamar')->where('id', $request->pasien_id)->get();
         return response()->json($pasien);
+    }
+
+    public function export_pasien()
+    {
+        return Excel::download(new PasienExport, 'pasien.xlsx');
+    }
+    public function import_pasien(Request $request)
+    {
+        $validator = Validator::make(
+        [
+            'file'      => $request->file('file_pasien'),
+            'extension' => strtolower($request->file('file_pasien')->getClientOriginalExtension()),
+        ],
+        [
+            'file'          => 'required',
+            'extension'      => 'required|in:xlsx,xls',
+        ]);
+        
+        if ($validator->fails()) {
+            Session::flash('error', $validator->errors());
+            return redirect()->route('petugas.pasienrawatinap.index');
+        }
+
+        Excel::import(new PasienImport, $request->file('file_pasien'));
+        Session::flash('status', 'Import Berhasil');
+        return redirect()->route('petugas.pasienrawatinap.index');    
     }
 }

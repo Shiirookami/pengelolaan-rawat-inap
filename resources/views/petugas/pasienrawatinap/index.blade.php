@@ -6,7 +6,12 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">Kelola Pasien Rawat Inap</h5>
-            <a href="{{ route('petugas.pasienrawatinap.create') }}" class="btn btn-primary mb-2">Tambah</a>
+            <div class="mb-2">
+                <a href="{{ route('petugas.pasienrawatinap.create') }}" class="btn btn-primary">Tambah</a>
+                <a href="{{ route('petugas.pasienrawatinap.export') }}" class="btn btn-success">Export</a>
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#importPasien">Import
+                </button>
+            </div>
             <!-- Table with hoverable rows -->
             <div class="table-responsive">
                 <table class="table table-hover" id="dataTable">
@@ -61,6 +66,34 @@
             </div>
         </div>
     </div> --}}
+    <!-- Modal -->
+    <div class="modal fade" id="importPasien" tabindex="-1" role="dialog" aria-labelledby="importPasienLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="importPasienLabel">Import Pasien</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{{ route('petugas.pasienrawatinap.import') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="file" name="file_pasien" required>
+                            <label class="custom-file-label" for="file">Choose file...</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Import</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
     <div class="modal fade" id="getPasien" tabindex="-1" role="dialog" aria-labelledby="getPasienLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">

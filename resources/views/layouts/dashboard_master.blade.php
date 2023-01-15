@@ -88,8 +88,8 @@
         @endif
         @if (session('error'))
             Swal.fire({
-                title: 'Warning!',
-                text: "{{ session('status') }}",
+                title: 'Error!',
+                html: "{{ session('error') }}",
                 icon: 'error',
                 timer: 3000
             })
