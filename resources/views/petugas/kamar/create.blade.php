@@ -25,6 +25,8 @@
                             <option value="" disabled selected>~Pilih Kamar~</option>
                             <option value="1">VIP</option>
                             <option value="2">EKOMOMI</option>
+                            {{-- <option value="3">BPJS</option>
+                            <option value="4">ASURANSI</option> --}}
                         </select>
                     </div>
                 </div>
