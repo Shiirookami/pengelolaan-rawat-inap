@@ -8,6 +8,7 @@ use App\Models\PasienRawatInap;
 use App\Models\Rujukan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use PDF;
 
 class RujukanController extends Controller
 {
@@ -43,6 +44,13 @@ class RujukanController extends Controller
         Rujukan::create($data);
         Session::flash('status', 'Data Berhasil Dimasukkan');
         return redirect()->route('petugas.rujukan.index');
+    }
+
+    public function print_pdf($id)
+    {
+        $data['rujukan'] = Rujukan::findOrFail($id);
+        $pdf = PDF::loadview('petugas.rujukan.report', $data);
+    	return $pdf->download('rujukan_' . $data['rujukan']->pasien->nama_lengkap . '.pdf');
     }
 
     public function show($id)

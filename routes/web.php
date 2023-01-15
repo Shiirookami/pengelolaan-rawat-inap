@@ -58,5 +58,6 @@ Route::group([
         Route::get('/rujukan', [RujukanController::class, 'index'])->name('rujukan.index');
         Route::get('/rujukan/create/{id?}', [RujukanController::class, 'create'])->name('rujukan.create');
         Route::post('/rujukan/store/', [RujukanController::class, 'store'])->name('rujukan.store');
+        Route::get('/rujukan/print_pdf/{id}', [RujukanController::class, 'print_pdf'])->name('rujukan.print');
     });
 });

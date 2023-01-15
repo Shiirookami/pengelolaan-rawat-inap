@@ -7,7 +7,6 @@
         <div class="card-body">
             <h5 class="card-title">Kelola Rujukan</h5>
             <a href="{{ route('petugas.rujukan.create') }}" class="btn btn-primary mb-2">Tambah</a>
-            <a href="{{ route('petugas.rujukan.create') }}" class="btn btn-danger mb-2">Print</a>
             <!-- Table with hoverable rows -->
             <div class="table-responsive">
                 <table class="table table-hover" id="dataTable">
@@ -38,6 +37,8 @@
                                 <td>{{ $rujukan->diagnosis }}</td>
                                 <td>{{ $rujukan->pertolongan_pertama }}</td>
                                 <td class="text-center">
+                                    <a href="{{ route('petugas.rujukan.print', $rujukan->id) }}"
+                                        class="btn btn-danger">Print</a>
                                     {{-- <a class="btn btn-warning"
                                         href="{{ route('petugas.rujukan.edit', $rujukan->id) }}">Edit</a>
                                     <form method="post" action="{{ route('petugas.rujukan.destroy', $rujukan->id) }}"
