@@ -21,7 +21,12 @@
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                 Kamar Kelas VIP</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">0 Orang</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                {{-- <td></td> --}}
+                                @foreach ($kamars as $item)
+                                    {{( $item->kelas)}} orang
+                                @endforeach
+                            </div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -37,7 +42,10 @@
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                 Kamar Kelas I</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">0 Orang</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                @foreach ($kamars as $item)
+                                {{( $item->kelas == '2')}} orang
+                            @endforeach</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-calendar fa-2x text-gray-300"></i>

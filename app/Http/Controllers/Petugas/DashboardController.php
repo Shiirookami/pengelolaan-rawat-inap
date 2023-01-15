@@ -3,16 +3,18 @@
 namespace App\Http\Controllers\Petugas;
 
 use App\Http\Controllers\Controller;
-use App\Models\Dokter;
 use Illuminate\Http\Request;
-use App\Models\Kamar;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        $data['kamars'] = Kamar::all();
-        $data['dokters'] = Dokter::all();
+        $data['kamars'] = DB::table('kamars')
+                     ->select(DB::raw('count(*) as nama_kamar, kelas'))
+                     ->where('kelas', '<>', 1)
+                     ->groupBy('kelas')
+                     ->get();
         return view('petugas.index')->with($data);
     }
 }
