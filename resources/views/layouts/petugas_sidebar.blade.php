@@ -1,7 +1,8 @@
 <!-- Sidebar -->
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center"
+        href="{{ route('petugas.dashboard.index') }}">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
@@ -22,7 +23,7 @@
     <div class="sidebar-heading"> Interface </div>
     <li class="nav-item {{ $routeName == 'petugas.dokter.index' ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('petugas.dokter.index') }}">
-            <i class="fas fa-solid fa-user-doctor"></i>
+            <i class="fas fa-solid fa-user"></i>
             <span>Dokter</span>
         </a>
     </li>
@@ -40,7 +41,7 @@
     </li>
     <li class="nav-item {{ $routeName == 'petugas.visitdokter.index' ? 'active' : '' }}">
         <a class="nav-link collapsed" href="{{ route('petugas.visitdokter.index') }}">
-            <i class="fas fa-solid fa-star-of-life"></i>
+            <i class="fas fa-solid fa-book"></i>
             <span>Visit Dokter</span>
         </a>
     </li>
