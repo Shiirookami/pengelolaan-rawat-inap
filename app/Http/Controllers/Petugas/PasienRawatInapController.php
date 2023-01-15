@@ -60,4 +60,13 @@ class PasienRawatInapController extends Controller
         Session::flash('status', 'Data Berhasil Dihapus');
         return redirect()->route('petugas.pasienrawatinap.index');
     }
+
+    public function getPasien(Request $request)
+    {
+        $request->validate([
+            'pasien_id' => 'required|exists:pasien_rawat_inaps,id'
+        ]);
+        $pasien = PasienRawatInap::with('kamar')->where('id', $request->pasien_id)->get();
+        return response()->json($pasien);
+    }
 }

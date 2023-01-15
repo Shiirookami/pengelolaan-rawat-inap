@@ -52,6 +52,7 @@ Route::group([
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
         Route::resource('/kamar', KamarController::class);
         Route::resource('/dokter', DokterController::class);
+        Route::get('/pasienrawatinap/getPasien', [PasienRawatInapController::class, 'getPasien'])->name('pasienrawatinap.getPasien');
         Route::resource('/pasienrawatinap', PasienRawatInapController::class);
         Route::resource('/visitdokter', VisitDokterController::class);
 
