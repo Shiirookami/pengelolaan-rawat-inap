@@ -11,25 +11,26 @@ class PetugasController extends Controller
 {
     public function index()
     {
-        $data['items'] = User::all();
+        $data['petugas'] = User::where('roles_id', 2)->get();
         return view('superadmin.petugas.index')->with($data);
-    }
-
-    public function updateStatus(Request $request, $id)
-    {
-        $request->validate([
-            'status' => 'required|in:0,1'
-        ]);
-        $petugas = User::findOrFail($id);
-        $petugas->status = $request->status;
-        $petugas->save();
-        return response()->json(['success' => 'Status change successfully.']);
     }
 
     public function destroy($id)
     {
-        User::onlyTrashed()->findOrFail($id)->forceDelete();
+        $user = User::findOrFail($id);
+        $user->delete();
         Session::flash('status', 'Data Berhasil Dihapus');
-        return redirect()->route('superadmin.petugas.index');
+        return redirect()->route('admin.petugas.index');
+    }
+
+    public function changeStatus(Request $request)
+    {
+        $request->validate([
+            'status' => 'required|in:0,1'
+        ]);
+        $user = User::findOrFail($request->user_id);
+        $user->status = $request->status;
+        $user->save();
+        return response()->json(['success'=>'Status Berhasil Dirubah']);
     }
 }

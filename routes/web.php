@@ -41,7 +41,7 @@ Route::group([
     ], function () {
         Route::get('/', [SuperadminDashboardController::class, 'index'])->name('dashboard.index');
         Route::get('/petugas', [PetugasController::class, 'index'])->name('petugas.index');
-        Route::put('/petugas/status/{id}', [PetugasController::class, 'updateStatus'])->name('petugas.updateStatus');
+        Route::get('/petugas/status', [PetugasController::class, 'changeStatus'])->name('petugas.changeStatus');
         Route::delete('/petugas/{id}', [PetugasController::class, 'destroy'])->name('petugas.destroy');
     });
     Route::group([

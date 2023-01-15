@@ -71,28 +71,28 @@
                 <tr></tr>
                 <tr>
                     <td colspan="2">Nama:</td>
-                    <td colspan="5">{{ $rujukan->pasien->nama_lengkap }}</td>
+                    <td colspan="6">{{ $rujukan->pasien->nama_lengkap }}</td>
                 </tr>
                 <tr>
                     <td colspan="2">Tanggal Lahir:</td>
-                    <td colspan="5">{{ \Carbon\Carbon::parse($rujukan->pasien->tanggal_lahir)->format('M d Y') }}
+                    <td colspan="6">{{ \Carbon\Carbon::parse($rujukan->pasien->tanggal_lahir)->format('M d Y') }}
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">Jenis Kelamin:</td>
-                    <td colspan="5">{{ $rujukan->pasien->jenis_kelamin }}</td>
+                    <td colspan="6">{{ $rujukan->pasien->jenis_kelamin }}</td>
                 </tr>
                 <tr>
                     <td colspan="2">Alamat :</td>
-                    <td colspan="5">{{ $rujukan->pasien->alamat }}</td>
+                    <td colspan="6">{{ $rujukan->pasien->alamat }}</td>
                 </tr>
                 <tr>
                     <td colspan="2">Diagnose/Gejala:</td>
-                    <td colspan="5">{{ $rujukan->diagnosis }}</td>
+                    <td colspan="6">{{ $rujukan->diagnosis }}</td>
                 </tr>
                 <tr>
                     <td colspan="2">Petolongan Pertama:</td>
-                    <td colspan="5">{{ $rujukan->pertolongan_pertama }}</td>
+                    <td colspan="6">{{ $rujukan->pertolongan_pertama }}</td>
                 </tr>
                 <tr>
                     <th colspan="8" style="padding-left: 35rem; position: relative;">Terimakasih<br> <br> <br> <br>
