@@ -8,7 +8,7 @@
             <h5 class="card-title">Kelola Rekam Medis</h5>
             <!-- Table with hoverable rows -->
             <div class="table-responsive">
-                <table id="example" class="display nowrap">
+                <table id="dataTable" class="display nowrap">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -42,3 +42,9 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script src="{{ asset('template/vendor/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('template/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('template/js/demo/datatables-demo.js') }}"></script>
+@endpush

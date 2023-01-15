@@ -7,11 +7,11 @@
         <div class="card-body">
             <h5 class="card-title">Kelola Pasien Rawat Inap</h5>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <a href="{{ route('petugas.pasienrawatinap.create') }}" class="btn btn-primary mb-2">Tambah</a>
+                <a href="{{ route('petugas.pasienrawatinap.create') }}" class="btn btn-primary mb-2">Tambah</a>
             </div>
             <!-- Table with hoverable rows -->
             <div class="table-responsive">
-                <table class="table table-hover" id="mytable">
+                <table class="table table-hover" id="dataTable">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -78,3 +78,9 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script src="{{ asset('template/vendor/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('template/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('template/js/demo/datatables-demo.js') }}"></script>
+@endpush

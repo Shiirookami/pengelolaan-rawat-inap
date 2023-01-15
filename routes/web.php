@@ -24,7 +24,9 @@ use App\Http\Controllers\Superadmin\PetugasController;
 Route::get('/', function () {
     return view('welcome');
 });
-
+// Route::get('/', function () {
+//     return view('Home_welcome');
+// });
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -54,8 +56,4 @@ Route::group([
         Route::resource('/visitdokter', VisitDokterController::class);
         Route::resource('/rujukan', RujukanController::class);
     });
-});
-
-Route::get('/', function () {
-    return view('Home_welcome');
 });
