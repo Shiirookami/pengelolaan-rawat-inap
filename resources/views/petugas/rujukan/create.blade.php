@@ -15,26 +15,31 @@
                 <div class="row mb-3">
                     <label for="tanggal" class="col-sm-2 col-form-label">Tanggal Rujukan</label>
                     <div class="col-sm-10">
-                        <input id="tanggal" type="date" class="form-control" name="tanggal" required>
+                        <input id="tanggal" type="date" class="form-control"
+                            value="{{ $errors->has('tanggal') ? '' : old('tanggal') }}" name="tanggal" required>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="nama_rumah_sakit" class="col-sm-2 col-form-label">Nama Rumah Sakit Yang Dituju</label>
                     <div class="col-sm-10">
-                        <input id="nama_rumah_sakit" type="text" class="form-control" name="nama_rumah_sakit" required>
+                        <input id="nama_rumah_sakit" type="text" class="form-control"
+                            value="{{ $errors->has('nama_rumah_sakit') ? '' : old('nama_rumah_sakit') }}"
+                            name="nama_rumah_sakit" required>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="diagnosis" class="col-sm-2 col-form-label">Diagnose/Gejala</label>
                     <div class="col-sm-10">
-                        <input id="diagnosis" type="text" class="form-control" name="diagnosis" required>
+                        <input id="diagnosis" type="text" class="form-control"
+                            value="{{ $errors->has('diagnosis') ? '' : old('diagnosis') }}" name="diagnosis" required>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="pertolongan_pertama" class="col-sm-2 col-form-label">Pertolongan Pertama</label>
                     <div class="col-sm-10">
-                        <input id="pertolongan_pertama" type="text" class="form-control" name="pertolongan_pertama"
-                            required>
+                        <input id="pertolongan_pertama" type="text" class="form-control"
+                            value="{{ $errors->has('pertolongan_pertama') ? '' : old('pertolongan_pertama') }}"
+                            name="pertolongan_pertama" required>
                     </div>
                 </div>
                 @if ($id_pasien)
@@ -62,12 +67,16 @@
                     </div>
                 @else
                     <div class="row mb-3">
+                        @php
+                            $id_pasien = $errors->has('diagnosis') ? '' : old('diagnosis');
+                        @endphp
                         <label for="id_pasien_rawat_inap" class="col-sm-2 col-form-label">Nama Pasien</label>
                         <div class="col-sm-10">
                             <select class="form-control" name="id_pasien_rawat_inap" id="id_pasien_rawat_inap" required>
                                 <option value="" disabled selected>~Pilih Nama Pasien~</option>
                                 @foreach ($pasiens as $item)
-                                    <option value="{{ $item->id }}">{{ $item->nama_lengkap }}</option>
+                                    <option value="{{ $item->id }}" {{ $id_pasien == $item->id ? 'selected' : '' }}>
+                                        {{ $item->nama_lengkap }}</option>
                                 @endforeach
                             </select>
                         </div>

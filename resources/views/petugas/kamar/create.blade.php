@@ -15,16 +15,21 @@
                 <div class="row mb-3">
                     <label for="nama_kamar" class="col-sm-2 col-form-label">Nama Kamar</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="nama_kamar" id="nama_kamar" required>
+                        <input type="text" class="form-control"
+                            value="{{ $errors->has('nama_kamar') ? '' : old('nama_kamar') }}" name="nama_kamar"
+                            id="nama_kamar" required>
                     </div>
                 </div>
                 <div class="row mb-3">
+                    @php
+                        $kelas = $errors->has('kelas') ? '' : old('no_identitas');
+                    @endphp
                     <label for="kelas" class="col-sm-2 col-form-label">Kelas</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="kelas" id="kelas" required>
                             <option value="" disabled selected>~Pilih Kamar~</option>
-                            <option value="1">VIP</option>
-                            <option value="2">EKOMOMI</option>
+                            <option value="1" {{ $kelas == '1' ? 'selected' : '' }}>VIP</option>
+                            <option value="2" {{ $kelas == '2' ? 'selected' : '' }}>EKOMOMI</option>
                             {{-- <option value="3">BPJS</option>
                             <option value="4">ASURANSI</option> --}}
                         </select>
@@ -33,7 +38,8 @@
                 <div class="row mb-3">
                     <label for="harga" class="col-sm-2 col-form-label">Harga</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="harga" id="harga" required>
+                        <input type="text" class="form-control" value="{{ $errors->has('harga') ? '' : old('harga') }}"
+                            name="harga" id="harga" required>
                     </div>
                 </div>
                 <div class="row mb-3">
