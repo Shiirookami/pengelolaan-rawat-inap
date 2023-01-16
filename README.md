@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About BookApp
+## About PRI APP
 
 PRI adalah aplikasi pengelolaan rawat inap dan pemeriksaan pasien sederhana yang masih dalam tahap pengembangan. Aplikasi ini dikembangan menggunakan framework Laravel.
 
