@@ -28,11 +28,11 @@ PRI adalah aplikasi pengelolaan rawat inap dan pemeriksaan pasien sederhana yang
 ## Demo
 | Home Page | Dashboard Page |
 | --- | --- |
-[![Home Page](/screens/s1.png)](/screens/s1.png)  | [![Dashboard Page](/screens/s4.png)](/screens/s4.png)
+[![Home Page](/public/screens/s1.png)](/public/screens/s1.png)  | [![Dashboard Page](/public/screens/s4.png)](/public/screens/s4.png)
 
 | Login | Register |
 | --- | --- |
-[![Login](/screens/s2.png)](/screens/s2.png)  | [![Register](/screens/s3.png)](/screens/s3.png)
+[![Login](/public/screens/s2.png)](/public/screens/s2.png)  | [![Register](/public/screens/s3.png)](/public/screens/s3.png)
 
 ## License
 
