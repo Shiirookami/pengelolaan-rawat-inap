@@ -4,7 +4,7 @@
     <a class="sidebar-brand d-flex align-items-center justify-content-center"
         href="{{ route('petugas.dashboard.index') }}">
         <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
+            <img src="{{ asset('template/img/dashboard-logo.png') }}" class="img-fluid">
         </div>
         <div class="sidebar-brand-text mx-3">PRI <sup>APP</sup></div>
     </a>

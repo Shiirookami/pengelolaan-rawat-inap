@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dokter;
+use App\Models\Kamar;
+use App\Models\PasienRawatInap;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -15,7 +18,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -38,5 +41,13 @@ class HomeController extends Controller
         //         return redirect()->route('login');
         //     }
         // }
+    }
+
+    public function home()
+    {
+        $data['pasien'] = PasienRawatInap::count();
+        $data['kamar'] = Kamar::count();
+        $data['dokter'] = Dokter::count();
+        return view('home')->with($data);
     }
 }

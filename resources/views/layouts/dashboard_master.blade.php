@@ -8,6 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>{{ config('app.name') }} - @yield('title')</title>
+    <link rel="icon" type="image/png" href="{{ asset('favicon.jpg') }}">
     <!-- Custom fonts for this template-->
     <link href="{{ asset('template/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     {{-- font awesome --}}

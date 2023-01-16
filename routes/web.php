@@ -21,16 +21,9 @@ use App\Http\Controllers\Superadmin\PetugasController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-// Route::get('/', function () {
-//     return view('Home_welcome');
-// });
+Route::get('/', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::group([
     'middleware' => 'auth'
 ], function () {
