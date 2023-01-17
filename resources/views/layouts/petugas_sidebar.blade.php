@@ -32,6 +32,12 @@
             <span>Kamar</span>
         </a>
     </li>
+    <li class="nav-item {{ $routeName == 'petugas.pinjamkamar.index' ? 'active' : '' }}">
+        <a class="nav-link collapsed" href="{{ route('petugas.pinjamkamar.index') }}">
+            <i class="fas fa-solid fa-door-open"></i>
+            <span>Pinjam Kamar</span>
+        </a>
+    </li>
     <li class="nav-item {{ $routeName == 'petugas.pasienrawatinap.index' ? 'active' : '' }}">
         <a class="nav-link collapsed" href="{{ route('petugas.pasienrawatinap.index') }}">
             <i class="fas fa-solid fa-bed"></i>

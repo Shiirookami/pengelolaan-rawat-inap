@@ -8,6 +8,8 @@ use App\Http\Requests\PasienRawatInapRequest;
 use App\Imports\PasienImport;
 use App\Models\Kamar;
 use App\Models\PasienRawatInap;
+use App\Models\PinjamKamar;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Excel;
@@ -30,7 +32,13 @@ class PasienRawatInapController extends Controller
     public function store(PasienRawatInapRequest $request)
     {
         $data = $request->all();
-        PasienRawatInap::create($data);
+        $pasienrawatinap = PasienRawatInap::create($data);
+        
+        $pinjam['id_kamar'] = $request->input('id_kamar');
+        $pinjam['id_pasien_rawat_inap'] = $pasienrawatinap->id;
+        $pinjam['tanggal_masuk'] = Carbon::now()->toDateTimeString();
+        PinjamKamar::create($pinjam);
+
         Session::flash('status', 'Data Berhasil Dimasukkan');
         return redirect()->route('petugas.pasienrawatinap.index');
     }
