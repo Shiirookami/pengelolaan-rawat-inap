@@ -50,6 +50,12 @@
             <span>Visit Dokter</span>
         </a>
     </li>
+    <li class="nav-item {{ $routeName == 'petugas.rekammedis.index' ? 'active' : '' }}">
+        <a class="nav-link collapsed" href="{{ route('petugas.rekammedis.index') }}">
+            <i class="fas fa-solid fa-archive"></i>
+            <span>Rekam Medis</span>
+        </a>
+    </li>
     <li class="nav-item {{ $routeName == 'petugas.rujukan.index' ? 'active' : '' }}">
         <a class="nav-link collapsed" href="{{ route('petugas.rujukan.index') }}">
             <i class="fas fa-solid fa-star-of-life"></i>

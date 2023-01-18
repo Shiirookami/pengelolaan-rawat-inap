@@ -33,7 +33,6 @@
 <body>
     <div align="center">
         <table border="1">
-
             <thead>
                 <tr>
                     <th colspan="8"

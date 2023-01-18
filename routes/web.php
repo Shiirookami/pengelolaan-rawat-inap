@@ -6,6 +6,7 @@ use App\Http\Controllers\Petugas\KamarController;
 use App\Http\Controllers\Petugas\DokterController;
 use App\Http\Controllers\Petugas\PasienRawatInapController;
 use App\Http\Controllers\Petugas\PinjamKamarController;
+use App\Http\Controllers\Petugas\RekamMedisController;
 use App\Http\Controllers\Petugas\RujukanController;
 use App\Http\Controllers\Petugas\VisitDokterController;
 use App\Http\Controllers\Superadmin\DashboardController as SuperadminDashboardController;
@@ -59,5 +60,10 @@ Route::group([
 
         Route::get('/pinjamkamar', [PinjamKamarController::class, 'index'])->name('pinjamkamar.index');
         Route::put('/pinjamkamar/{id}', [PinjamKamarController::class, 'update'])->name('pinjamkamar.update');
+        
+        Route::get('/rekammedis', [RekamMedisController::class, 'index'])->name('rekammedis.index');
+        Route::get('/rekammedis/detail/{id}', [RekamMedisController::class, 'detail'])->name('rekammedis.detail');
+        Route::post('/rekammedis/print/{id}', [RekamMedisController::class, 'print'])->name('rekammedis.print');
+
     });
 });

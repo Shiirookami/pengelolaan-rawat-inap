@@ -8,7 +8,7 @@
             <h5 class="card-title">Kelola Rekam Medis</h5>
             <!-- Table with hoverable rows -->
             <div class="table-responsive">
-                <table id="dataTable" class="display nowrap">
+                <table id="dataTable" class="table table-hover">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -23,17 +23,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Brandon Jacob</td>
-                            <td>Designer</td>
-                            <td>28</td>
-                            <td>2016-05-25</td>
-                            <td>2016-05-25</td>
-                            <td>2016-05-25</td>
-                            <td>2016-05-25</td>
-                            <td class="text-center"><button class="btn btn-primary">Detail</button></td>
-                        </tr>
+                        @foreach ($items as $key => $data)
+                            <tr>
+                                <th scope="row">{{ $key + 1 }}</th>
+                                <td>{{ $data->pasien->nama_lengkap }}</td>
+                                <td>{{ $data->pasien->no_identitas }}</td>
+                                <td>{{ $data->pasien->alamat }}</td>
+                                <td>{{ $data->pasien->jenis_kelamin }}</td>
+                                <td>{{ $data->kamar->nama_kamar }}</td>
+                                <td>{{ $data->tanggal_masuk }}</td>
+                                <td>{{ $data->tanggal_keluar }}</td>
+                                <td class="text-center">
+                                    <a href="{{ route('petugas.rekammedis.detail', $data->id_pasien_rawat_inap) }}"
+                                        class="btn btn-primary">Detail</a>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
                 <!-- End Table with hoverable rows -->
