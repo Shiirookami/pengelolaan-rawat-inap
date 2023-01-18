@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Surat Rujukan {{ $rujukan->pasien->nama_lengkap }}</title>
+    <title>Surat Rujukan {{ $rujukan->nama_lengkap }}</title>
     <style type="text/css">
         table {
             font-size: 50px;
@@ -56,7 +56,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">Pederita Bernama:</td>
-                    <td colspan="1">{{ $rujukan->pasien->nama_lengkap }}</td>
+                    <td colspan="1">{{ $rujukan->nama_pasien }}</td>
                     <td colspan="5">Kepada</td>
                 </tr>
                 <tr>
@@ -69,21 +69,25 @@
                 </tr>
                 <tr></tr>
                 <tr>
+                    <td colspan="2">No Identitas:</td>
+                    <td colspan="6">{{ $rujukan->no_identitas }}</td>
+                </tr>
+                <tr>
                     <td colspan="2">Nama:</td>
-                    <td colspan="6">{{ $rujukan->pasien->nama_lengkap }}</td>
+                    <td colspan="6">{{ $rujukan->nama_pasien }}</td>
                 </tr>
                 <tr>
                     <td colspan="2">Tanggal Lahir:</td>
-                    <td colspan="6">{{ \Carbon\Carbon::parse($rujukan->pasien->tanggal_lahir)->format('M d Y') }}
+                    <td colspan="6">{{ \Carbon\Carbon::parse($rujukan->tanggal_lahir)->format('M d Y') }}
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">Jenis Kelamin:</td>
-                    <td colspan="6">{{ $rujukan->pasien->jenis_kelamin }}</td>
+                    <td colspan="6">{{ $rujukan->jenis_kelamin }}</td>
                 </tr>
                 <tr>
-                    <td colspan="2">Alamat :</td>
-                    <td colspan="6">{{ $rujukan->pasien->alamat }}</td>
+                    <td colspan="2">Alamat:</td>
+                    <td colspan="6">{{ $rujukan->alamat }}</td>
                 </tr>
                 <tr>
                     <td colspan="2">Diagnose/Gejala:</td>

@@ -22,7 +22,7 @@
                 </div>
                 <div class="row mb-3">
                     @php
-                        $kelas = $errors->has('kelas') ? '' : old('no_identitas');
+                        $kelas = $errors->has('kelas') ? '' : old('kelas');
                     @endphp
                     <label for="kelas" class="col-sm-2 col-form-label">Kelas</label>
                     <div class="col-sm-10">

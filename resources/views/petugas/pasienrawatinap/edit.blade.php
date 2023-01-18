@@ -73,9 +73,9 @@
                         <select id="golongan_darah" class="form-control" name="golongan_darah"
                             value="{{ $item->golongan_darah }}" required>
                             <option value="A" {{ $item->golongan_darah == 'A' ? 'selected' : '' }}>A</option>
-                            <option value="B" {{ $item->golongan_darah == 'A' ? 'selected' : '' }}>B</option>
-                            <option value="AB" {{ $item->golongan_darah == 'A' ? 'selected' : '' }}>AB</option>
-                            <option value="O" {{ $item->golongan_darah == 'A' ? 'selected' : '' }}>O</option>
+                            <option value="B" {{ $item->golongan_darah == 'B' ? 'selected' : '' }}>B</option>
+                            <option value="AB" {{ $item->golongan_darah == 'AB' ? 'selected' : '' }}>AB</option>
+                            <option value="O" {{ $item->golongan_darah == 'O' ? 'selected' : '' }}>O</option>
                         </select>
                     </div>
                 </div>

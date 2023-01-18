@@ -15,6 +15,7 @@
                             <th scope="col">#</th>
                             <th scope="col">Tanggal</th>
                             <th scope="col">Nama Rumah Sakit</th>
+                            <th scope="col">No Identitas</th>
                             <th scope="col">Nama Pasien</th>
                             <th scope="col">Tanggal Lahir</th>
                             <th scope="col">Jenis Kelamin</th>
@@ -30,10 +31,11 @@
                                 <th scope="row">{{ $item + 1 }}</th>
                                 <td>{{ $rujukan->tanggal }}</td>
                                 <td>{{ $rujukan->nama_rumah_sakit }}</td>
-                                <td>{{ $rujukan->pasien->nama_lengkap }}</td>
-                                <td>{{ $rujukan->pasien->tanggal_lahir }}</td>
-                                <td>{{ $rujukan->pasien->jenis_kelamin }}</td>
-                                <td>{{ $rujukan->pasien->alamat }}</td>
+                                <td>{{ $rujukan->no_identitas }}</td>
+                                <td>{{ $rujukan->nama_pasien }}</td>
+                                <td>{{ $rujukan->tanggal_lahir }}</td>
+                                <td>{{ $rujukan->jenis_kelamin }}</td>
+                                <td>{{ $rujukan->alamat }}</td>
                                 <td>{{ $rujukan->diagnosis }}</td>
                                 <td>{{ $rujukan->pertolongan_pertama }}</td>
                                 <td class="text-center">

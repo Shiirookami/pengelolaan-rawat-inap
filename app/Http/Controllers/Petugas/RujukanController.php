@@ -25,8 +25,8 @@ class RujukanController extends Controller
             $data['pasien'] = PasienRawatInap::findOrFail($id);
             $data['id_pasien'] = true;
         } else {
-            $id_pasien = Rujukan::pluck('id_pasien_rawat_inap')->all();
-            $data['pasiens'] = PasienRawatInap::whereNotIn('id', $id_pasien)->get();
+            // $id_pasien = Rujukan::pluck('id_pasien_rawat_inap')->all();
+            // $data['pasiens'] = PasienRawatInap::whereNotIn('id', $id_pasien)->get();
             $data['id_pasien'] = false;
         }
         return view('petugas.rujukan.create')->with($data);
@@ -35,7 +35,7 @@ class RujukanController extends Controller
     public function store(RujukanRequest $request)
     {
         $data = $request->all();
-        $cek_pasien = Rujukan::where('id_pasien_rawat_inap', $request->input('id_pasien_rawat_inap'))->first();
+        $cek_pasien = Rujukan::where('no_identitas', $request->input('no_identitas'))->first();
         if($cek_pasien)
         {
             Session::flash('error', 'Pasien Sudah Dirujuk');
@@ -50,7 +50,7 @@ class RujukanController extends Controller
     {
         $data['rujukan'] = Rujukan::findOrFail($id);
         $pdf = PDF::loadview('petugas.rujukan.report', $data);
-    	return $pdf->download('rujukan_' . $data['rujukan']->pasien->nama_lengkap . '.pdf');
+    	return $pdf->download('rujukan_' . $data['rujukan']->nama_pasien . '.pdf');
     }
 
     public function show($id)

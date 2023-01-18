@@ -19,10 +19,15 @@ return new class extends Migration
             $table->string('nama_rumah_sakit');
             $table->string('diagnosis');
             $table->string('pertolongan_pertama');
-            $table->unsignedBigInteger('id_pasien_rawat_inap');
-            $table->foreign('id_pasien_rawat_inap')->references('id')->on('pasien_rawat_inaps')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+            // $table->unsignedBigInteger('id_pasien_rawat_inap');
+            // $table->foreign('id_pasien_rawat_inap')->references('id')->on('pasien_rawat_inaps')
+            //     ->onDelete('cascade')
+            //     ->onUpdate('cascade');
+            $table->char('no_identitas', 16);
+            $table->string('nama_pasien');
+            $table->date('tanggal_lahir');
+            $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan']);
+            $table->string('alamat');
             $table->softDeletes();
             $table->timestamps();
         });

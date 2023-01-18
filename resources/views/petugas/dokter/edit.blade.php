@@ -42,9 +42,9 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="hariMulai" class="col-sm-2 col-form-label">Hari Mulai</label>
+                    <label for="hari_mulai" class="col-sm-2 col-form-label">Hari Mulai</label>
                     <div class="col-sm-10">
-                        <select class="form-control" name="hariMulai" required>
+                        <select class="form-control" name="hari_mulai" required>
                             <option value="Senin" {{ $hari_mulai == 'Senin' ? 'selected' : '' }}>Senin</option>
                             <option value="Selasa" {{ $hari_mulai == 'Selasa' ? 'selected' : '' }}>Selasa</option>
                             <option value="Rabu" {{ $hari_mulai == 'Rabu' ? 'selected' : '' }}>Rabu</option>
@@ -55,9 +55,9 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="hariBerakhir" class="col-sm-2 col-form-label">Hari Berakhir</label>
+                    <label for="hari_berakhir" class="col-sm-2 col-form-label">Hari Berakhir</label>
                     <div class="col-sm-10">
-                        <select class="form-control" name="hariBerakhir" required>
+                        <select class="form-control" name="hari_berakhir" required>
                             <option value="Senin" {{ $hari_berakhir == 'Senin' ? 'selected' : '' }}>Senin</option>
                             <option value="Selasa" {{ $hari_berakhir == 'Selasa' ? 'selected' : '' }}>Selasa</option>
                             <option value="Rabu" {{ $hari_berakhir == 'Rabu' ? 'selected' : '' }}>Rabu</option>

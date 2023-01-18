@@ -24,7 +24,7 @@ class PasienRawatInapRequest extends FormRequest
     public function rules()
     {
         return [
-            'no_identitas' => ['required', 'numeric', 'unique:pasien_rawat_inaps'],
+            'no_identitas' => ['required', 'numeric'],
             'nama_lengkap' => ['required'],
             'no_hp' => ['required', 'numeric', 'min:11'],
             'alamat' => ['required'],

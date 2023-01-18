@@ -31,6 +31,9 @@ class PasienRawatInapController extends Controller
 
     public function store(PasienRawatInapRequest $request)
     {
+        $request->validate([
+            'no_identitas' => 'unique:pasien_rawat_inaps'
+        ]);
         $data = $request->all();
         $pasienrawatinap = PasienRawatInap::create($data);
         
@@ -58,8 +61,19 @@ class PasienRawatInapController extends Controller
     public function update(PasienRawatInapRequest $request, $id)
     {
         $data = $request->all();
-        $item = PasienRawatInap::findOrFail($id);
-        $item->update($data);
+        $id = PasienRawatInap::where([
+            ['no_identitas', $request->input('no_identitas')],
+            ['id', $id]
+        ])->first();
+        if($id)
+        {
+            $id->update($data);
+        } else {
+            $request->validate([
+                'no_identitas' => 'unique:pasien_rawat_inaps'
+            ]);
+            $id->update($data);
+        }
         Session::flash('status', 'Data Berhasil Diubah');
         return redirect()->route('petugas.pasienrawatinap.index');
     }

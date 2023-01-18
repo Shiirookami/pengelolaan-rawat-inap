@@ -7,6 +7,7 @@ use App\Http\Requests\VisitDokterStoreRequest;
 use App\Http\Requests\VisitDokterUpdateRequest;
 use App\Models\Dokter;
 use App\Models\PasienRawatInap;
+use App\Models\PinjamKamar;
 use App\Models\Rujukan;
 use Illuminate\Http\Request;
 use App\Models\VisitDokter;
@@ -23,13 +24,13 @@ class VisitDokterController extends Controller
         // $data['items'] = VisitDokter::orderBy('created_at', 'desc')->groupBy('id_pasien_rawat_inap', )->get();
         // dd($data['items']);
         
-        $rujukans = Rujukan::pluck('id_pasien_rawat_inap')->all();
+        $pinjam_kamars = PinjamKamar::whereNotNull('tanggal_keluar')->get();
         $id_pasien = null;
-        foreach ($rujukans as $key => $rujukan) {
-            if($key+1 === count($rujukans)) {
-                $id_pasien .= $rujukan;
+        foreach ($pinjam_kamars as $key => $pinjam_kamar) {
+            if($key+1 === count($pinjam_kamars)) {
+                $id_pasien .= $pinjam_kamar->id_pasien_rawat_inap;
             } else {
-                $id_pasien .= $rujukan . ','; 
+                $id_pasien .= $pinjam_kamar->id_pasien_rawat_inap . ','; 
             }
         }
 

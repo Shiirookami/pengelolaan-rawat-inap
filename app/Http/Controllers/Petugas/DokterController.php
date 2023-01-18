@@ -22,6 +22,9 @@ class DokterController extends Controller
 
     public function store(DokterRequest $request)
     {
+        $request->validate([
+            'no_identitas' => 'unique:dokters'
+        ]);
         $data = $request->all();
         $jadwal = $request->input('hari_mulai') . " - " . $request->input('hari_berakhir') . " / " . $request->input('jam');
         $data['jadwal_dokter'] = $jadwal;
@@ -44,8 +47,19 @@ class DokterController extends Controller
     public function update(DokterRequest $request, $id)
     {
         $data = $request->all();
-        $item = Dokter::findOrFail($id);
-        $item->update($data);
+        $id = Dokter::where([
+            ['no_identitas', $request->input('no_identitas')],
+            ['id', $id]
+        ])->first();
+        if($id)
+        {
+            $id->update($data);
+        } else {
+            $request->validate([
+                'no_identitas' => 'unique:dokters'
+            ]);
+            $id->update($data);
+        }
         Session::flash('status', 'Data Berhasil Diubah');
         return redirect()->route('petugas.dokter.index');
     }
