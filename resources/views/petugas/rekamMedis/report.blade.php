@@ -189,14 +189,18 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="3" style="border: none; font-style: italic">0812-9011-7250</td>
+                    <td colspan="2" style="border: none; font-style: italic">0812-9011-7250</td>
+                    <td>
+                        <img src="{{ asset('template/img/logo_puskesmas.png') }}" alt="puskesmas" width="300px"
+                            height="300px">
+                    </td>
                 </tr>
+            </thead>
+            <tbody>
                 <tr>
                     <th style="font-size: 15px; border: none; text-align: center" colspan="3">REKAM MEDIS PASIEN
                     </th>
                 </tr>
-            </thead>
-            <tbody>
                 <tr>
                     <td>Nama Lengkap</td>
                     <td>:</td>

@@ -47,18 +47,19 @@ class DokterController extends Controller
     public function update(DokterRequest $request, $id)
     {
         $data = $request->all();
-        $id = Dokter::where([
+        $id_dokter = Dokter::where([
             ['no_identitas', $request->input('no_identitas')],
             ['id', $id]
         ])->first();
-        if($id)
+        if($id_dokter)
         {
-            $id->update($data);
+            $id_dokter->update($data);
         } else {
             $request->validate([
                 'no_identitas' => 'unique:dokters'
             ]);
-            $id->update($data);
+            $id_dokter = Dokter::findOrFail($id);
+            $id_dokter->update($data);
         }
         Session::flash('status', 'Data Berhasil Diubah');
         return redirect()->route('petugas.dokter.index');

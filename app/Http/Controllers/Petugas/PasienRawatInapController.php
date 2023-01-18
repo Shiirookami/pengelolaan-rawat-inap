@@ -61,18 +61,19 @@ class PasienRawatInapController extends Controller
     public function update(PasienRawatInapRequest $request, $id)
     {
         $data = $request->all();
-        $id = PasienRawatInap::where([
+        $id_pasien = PasienRawatInap::where([
             ['no_identitas', $request->input('no_identitas')],
             ['id', $id]
         ])->first();
-        if($id)
+        if($id_pasien)
         {
-            $id->update($data);
+            $id_pasien->update($data);
         } else {
             $request->validate([
                 'no_identitas' => 'unique:pasien_rawat_inaps'
             ]);
-            $id->update($data);
+            $id_pasienid = PasienRawatInap::findOrFail($id);
+            $id_pasien->update($data);
         }
         Session::flash('status', 'Data Berhasil Diubah');
         return redirect()->route('petugas.pasienrawatinap.index');
