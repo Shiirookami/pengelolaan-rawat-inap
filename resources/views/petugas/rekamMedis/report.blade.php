@@ -177,7 +177,13 @@
 <body>
     <div class="container">
         <table class="table">
-            <thead>
+            <tbody>
+                <tr>
+                    <td rowspan="4" style="padding-top:50px;  border: none; text-align: center">
+                        <img src="{{ $_SERVER['DOCUMENT_ROOT'] }}/template/img/logo_puskesmas.png" width="150px"
+                            height="150px">
+                    </td>
+                </tr>
                 <tr>
                     <th style="font-size: 22px; border: none;" colspan="3">
                         PUSKESMAS KABUPATEN CIANJUR</th>
@@ -190,13 +196,7 @@
                 </tr>
                 <tr>
                     <td colspan="2" style="border: none; font-style: italic">0812-9011-7250</td>
-                    <td>
-                        <img src="{{ asset('template/img/logo_puskesmas.png') }}" alt="puskesmas" width="300px"
-                            height="300px">
-                    </td>
                 </tr>
-            </thead>
-            <tbody>
                 <tr>
                     <th style="font-size: 15px; border: none; text-align: center" colspan="3">REKAM MEDIS PASIEN
                     </th>

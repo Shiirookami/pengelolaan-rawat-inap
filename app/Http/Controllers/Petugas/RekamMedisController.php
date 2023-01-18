@@ -46,8 +46,9 @@ class RekamMedisController extends Controller
         $data['durasi'] = $range == 0 ? 1 : $range;
         $data['harga_kamar'] = $data['pinjamkamar']->kamar->harga * $data['durasi'];
         $data['total_bayar'] = $data['harga_kamar'] + $data['biaya_perawatan'];
-        return view('petugas.rekammedis.report', $data);
+        // return  view('petugas.rekammedis.report', $data);
         $pdf = PDF::loadview('petugas.rekammedis.report', $data);
         return $pdf->download('rekam_medis_' . $data['pinjamkamar']->pasien->nama_lengkap . '.pdf');
+        // return redirect()->route('petugas.rekammedis.index');
     }
 }
