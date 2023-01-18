@@ -47,21 +47,22 @@
                     <div class="row mb-3">
                         <label for="no_identitas" class="col-sm-2 col-form-label">No Identitas</label>
                         <div class="col-sm-10">
-                            <input id="no_identitas" type="number" class="form-control" value="{{ $pasien->no_identitas }}"
-                                disabled>
+                            <input name="no_identitas" id="no_identitas" type="number" class="form-control"
+                                value="{{ $pasien->no_identitas }}" disabled>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label for="nama_pasien" class="col-sm-2 col-form-label">Nama Pasien</label>
                         <div class="col-sm-10">
-                            <input id="nama_pasien" type="text" class="form-control" value="{{ $pasien->nama_pasien }}"
-                                disabled>
+                            <input name="nama_pasien" id="nama_pasien" type="text" class="form-control"
+                                value="{{ $pasien->nama_lengkap }}" disabled>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label for="jenis_kelamin" class="col-sm-2 col-form-label">Jenis Kelamin</label>
                         <div class="col-sm-10">
-                            <select class="form-control" name="jenis_kelamin" id="jenis_kelamin" required>
+                            <select name="jenis_kelamin" class="form-control" name="jenis_kelamin" id="jenis_kelamin"
+                                disabled>
                                 <option value="Laki-laki" {{ $pasien->jenis_kelamin == 'Laki-laki' ? 'selected' : '' }}>
                                     Laki-laki
                                 </option>
@@ -74,7 +75,7 @@
                     <div class="row mb-3">
                         <label for="tanggal_lahir" class="col-sm-2 col-form-label">Tanggal Lahir</label>
                         <div class="col-sm-10">
-                            <input id="tanggal_lahir" type="date" class="form-control"
+                            <input name="tanggal_lahir" id="tanggal_lahir" type="date" class="form-control"
                                 value="{{ $pasien->tanggal_lahir }}" disabled>
                         </div>
                     </div>

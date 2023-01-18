@@ -35,11 +35,20 @@ class RujukanController extends Controller
     public function store(RujukanRequest $request)
     {
         $data = $request->all();
-        $cek_pasien = Rujukan::where('no_identitas', $request->input('no_identitas'))->first();
-        if($cek_pasien)
+        if($request->input('id_pasien_rawat_inap'))
         {
-            Session::flash('error', 'Pasien Sudah Dirujuk');
-            return redirect()->route('petugas.rujukan.index');
+            $pasien = PasienRawatInap::findOrFail($request->input('id_pasien_rawat_inap'));
+            $data['no_identitas'] = $pasien->no_identitas;
+            $data['nama_pasien'] = $pasien->nama_lengkap;
+            $data['tanggal_lahir'] = $pasien->tanggal_lahir;
+            $data['alamat'] = $pasien->alamat;
+        } else {
+            $request->validate([
+                'no_identitas' => ['required'],
+                'nama_pasien' => ['required'],
+                'tanggal_lahir' => ['required'],
+                'alamat' => ['required'],
+            ]);
         }
         Rujukan::create($data);
         Session::flash('status', 'Data Berhasil Dimasukkan');
