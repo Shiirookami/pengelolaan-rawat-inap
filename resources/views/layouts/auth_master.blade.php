@@ -30,6 +30,17 @@
     <script src="{{ asset('template/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('template/js/sb-admin-2.min.js') }}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        @if (session('status'))
+            Swal.fire({
+                title: 'Congratulations!',
+                text: "{{ session('status') }}",
+                icon: 'success',
+                timer: 3000
+            })
+        @endif
+    </script>
 </body>
 
 </html>
